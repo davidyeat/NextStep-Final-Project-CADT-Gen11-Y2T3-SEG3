@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/database.js";
-import University from "./university.js";
+import sequelize from "../config/database.js";
 
 const Facility = sequelize.define('Facility', {
     facilityId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},

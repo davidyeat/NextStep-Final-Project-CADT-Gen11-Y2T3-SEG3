@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/database.js";
+import sequelize from "../config/database.js";
 
 const Role = sequelize.define('Role', {
     roleId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
