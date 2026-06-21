@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/database.js";
+import sequelize from "../config/database.js";
 
 const Major = sequelize.define('Major', {
     majorId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
