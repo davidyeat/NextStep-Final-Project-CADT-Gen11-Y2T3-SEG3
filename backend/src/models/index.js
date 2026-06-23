@@ -3,6 +3,7 @@ import { DataTypes } from "sequelize";
 import User from "./user.js";
 import Role from "./role.js";
 import Profile from "./profile.js";
+import Provider from "./provider.js";
 import University from "./university.js";
 import Facility from "./facility.js";
 import Admission from "./admission.js";
@@ -44,6 +45,10 @@ Major.belongsTo(MajorCategory, {foreignKey: 'categoryId'});
 FundingType.hasMany(Scholarship, {foreignKey: 'fundingId'});
 Scholarship.belongsTo(FundingType, {foreignKey: 'fundingId'});
 
+// Provider & Scholarship (One-to-Many)
+Provider.hasMany(Scholarship, {foreignKey: 'providerId'});
+Scholarship.belongsTo(Provider, {foreignKey: 'providerId'});
+
 // Many-to-Many relationships
 // Bookmark_University (User <-> University)
 User.belongsToMany(University, {through: 'Bookmark_University', foreignKey: 'userId', otherKey: 'universityId'});
@@ -64,5 +69,5 @@ Major.belongsToMany(Scholarship, {through: 'Scholarship_Major', foreignKey: 'maj
 export {
     User, Role, Profile, University,Facility,
     Admission, Department, Major, MajorCategory, 
-    Scholarship, FundingType
+    Scholarship, FundingType, Provider
 };

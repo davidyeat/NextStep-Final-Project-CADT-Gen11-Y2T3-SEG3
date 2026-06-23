@@ -3,8 +3,7 @@ import sequelize from "../config/database.js";
 
 const FundingType = sequelize.define('FundingType', {
     fundingId: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, allowNull: false},
-    description: {type: DataTypes.TEXT},
+    name: {type: DataTypes.STRING, allowNull: false}
 });
 
 export default FundingType;

@@ -27,6 +27,7 @@ export const getDepartmentById = async(id) => {
 export const createDepartment = async(departmentData) => {
   try{
     const department = await Department.create({
+      universityId: departmentData.universityId,
       name: departmentData.name,
       description: departmentData.description
     });
@@ -36,3 +37,6 @@ export const createDepartment = async(departmentData) => {
     throw error;
   }
 }
+
+// Update a department
+export const update

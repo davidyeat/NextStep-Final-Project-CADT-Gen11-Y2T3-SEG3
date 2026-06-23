@@ -15,7 +15,7 @@ export const getAllUniversities = async () => {
 // Get a university by ID
 export const getUniversityById = async (id) => {
   try {
-    const university = await University.findByPk(id);
+    const university = await University.findOne({where: {universityId: id}});
     return university;
   } catch (error) {
     console.error("Error fetching university:", error);
@@ -24,26 +24,26 @@ export const getUniversityById = async (id) => {
 }
 
 // Create a new university
-export const createUniversity = async (universityData) => {
+export const createUniversity = async (data) => {
   try {
     const newUniversity = await University.create({
-      campusName: universityData.campusName,
-      shortName: universityData.shortName,
-      type: universityData.type,
-      websiteUrl: universityData.websiteUrl,
-      logoUrl: universityData.logoUrl,
-      coverImageUrl: universityData.coverImageUrl,
-      province: universityData.province,
-      city: universityData.city,
-      email: universityData.email,
-      phoneNumber: universityData.phoneNumber,
-      address: universityData.address,
-      description: universityData.description,
-      vision: universityData.vision,
-      mission: universityData.mission
+      campusName: data.campusName,
+      shortName: data.shortName,
+      type: data.type,
+      websiteUrl: data.websiteUrl,
+      logoUrl: data.logoUrl,
+      coverImageUrl: data.coverImageUrl,
+      province: data.province,
+      city: data.city,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      address: data.address,
+      description: data.description,
+      vision: data.vision,
+      mission: data.mission
     });
-    console.log("University created successfully:", newUniversity);
-    return newUniversity.id;
+    console.log("University created successfully:", newUniversity.id);
+    return newUniversity;
   } catch (error) {
     console.error("Error creating university:", error);
     throw error;
@@ -51,31 +51,30 @@ export const createUniversity = async (universityData) => {
 }
 
 // Update an existing university
-export const updateUniversity = async (id, universityData) => {
+export const updateUniversity = async(id, data) => {
   try {
-    const university = await University.findByPk(id);
+    const university = await University.findOne({where: {universityId: id}});
     if (!university) {
       throw new Error("University not found");
     }
-    const [updated] = await university.update({
-      campusName: universityData.campusName,
-      shortName: universityData.shortName,
-      type: universityData.type,
-      websiteUrl: universityData.websiteUrl,
-      logoUrl: universityData.logoUrl,
-      coverImageUrl: universityData.coverImageUrl,
-      province: universityData.province,
-      city: universityData.city,
-      email: universityData.email,
-      phoneNumber: universityData.phoneNumber,
-      address: universityData.address,
-      description: universityData.description,
-      vision: universityData.vision,
-      mission: universityData.mission
-    }, {
-      where: { universityId: id }
+    const updated = await university.update({
+      campusName: data.campusName,
+      shortName: data.shortName,
+      type: data.type,
+      websiteUrl: data.websiteUrl,
+      logoUrl: data.logoUrl,
+      coverImageUrl: data.coverImageUrl,
+      province: data.province,
+      city: data.city,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      address: data.address,
+      description: data.description,
+      vision: data.vision,
+      mission: data.mission
     });
-    console.log("University updated successfully:", university);
+
+    console.log("University updated successfully:", university.id);
     return updated;
   } catch (error) {
     console.error("Error updating university:", error);
@@ -86,13 +85,13 @@ export const updateUniversity = async (id, universityData) => {
 // Delete a university
 export const deleteUniversity = async (id) => {
   try {
-    const university = await University.findByPk(id);
+    const university = await University.findOne({where: {universityId: id}});
     if (!university) {
       throw new Error("University not found");
     }
-    const [deleted] = await university.destroy();
-    console.log("University deleted successfully:", university);
-    return deleted;
+    await university.destroy();
+    console.log("University deleted successfully:", id);
+    return true;
   } catch (error) {
     console.error("Error deleting university:", error);
     throw error;
