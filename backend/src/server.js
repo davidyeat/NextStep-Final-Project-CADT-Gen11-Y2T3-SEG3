@@ -3,6 +3,7 @@ import sequelize from "./config/database.js";
 import express from "express";
 import "./models/index.js";
 import universityRoutes from "./routes/universityRoutes.js";
+import scholarshipRoutes from "./routes/scholarshipRoutes.js";
 
 // Middleware
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/universities", universityRoutes);
+app.use("/api/scholarships", scholarshipRoutes);
 
 // Start the server
 const PORT = ENV.PORT || 4000;
