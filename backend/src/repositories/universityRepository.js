@@ -98,5 +98,4 @@ export const deleteUniversity = async (id) => {
   }
 }
 
-
-
+// GET /api/universities/search?query=universityName
