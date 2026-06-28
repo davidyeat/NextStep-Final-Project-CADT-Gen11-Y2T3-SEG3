@@ -1,19 +1,19 @@
 @import "tailwindcss";
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  --text: #465261;
+  --text-h: #16212d;
+  --bg: #fbf8f2;
+  --border: #ded4c3;
+  --code-bg: #f4ede0;
+  --accent: #8e6c3b;
+  --accent-bg: rgba(142, 108, 59, 0.12);
+  --accent-border: rgba(142, 108, 59, 0.45);
+  --social-bg: rgba(244, 237, 225, 0.8);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(37, 28, 18, 0.1) 0 10px 18px -6px, rgba(37, 28, 18, 0.06) 0 4px 8px -4px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Georgia', 'Times New Roman', serif;
+  --heading: 'Georgia', 'Times New Roman', serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -33,21 +33,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #b5bfc8;
+    --text-h: #f4efe7;
+    --bg: #101418;
+    --border: #26313a;
+    --code-bg: #1a2027;
+    --accent: #d7a86e;
+    --accent-bg: rgba(215, 168, 110, 0.12);
+    --accent-border: rgba(215, 168, 110, 0.45);
+    --social-bg: rgba(31, 38, 45, 0.8);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(0, 0, 0, 0.45) 0 10px 18px -6px, rgba(0, 0, 0, 0.22) 0 4px 8px -4px;
   }
 
   #social .button-icon {
-    filter: invert(1) brightness(2);
+    filter: invert(1) brightness(1.8);
   }
 }
 
@@ -56,11 +56,10 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  margin: 0;
+  text-align: left;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
