@@ -1,15 +1,96 @@
 import { useEffect, useState } from "react";
 import { BookOpenText, Loader2, Search, X } from "lucide-react";
 import ScholarshipCard from "../components/ScholarshipCard";
-import FilterCard from "../components/FilterCard";
+import ScholarshipFilterPanel from "../components/ScholarshipFilterPanel";
 import { getScholarships } from "../services/scholarshipService";
 
 const initialFilters = {
-    type: "",
-    location: "",
-    major: "",
-    minTuition: "",
-    maxTuition: "",
+    levelOfStudy: "",
+    supportType: "",
+    provider: "",
+    majorSearch: "",
+};
+
+const normalizeText = (value) => String(value || "").toLowerCase();
+
+const scholarshipMatchesLevel = (scholarship, selectedLevel) => {
+    if (!selectedLevel) {
+        return true;
+    }
+
+    const degreeLevel = normalizeText(scholarship.degreeLevel);
+
+    if (selectedLevel === "Undergraduate") {
+        return ["undergraduate", "bachelor", "ba", "bsc"].some((keyword) =>
+            degreeLevel.includes(keyword)
+        );
+    }
+
+    if (selectedLevel === "Graduate") {
+        return ["graduate", "master", "mba", "ma", "msc"].some((keyword) =>
+            degreeLevel.includes(keyword)
+        );
+    }
+
+    if (selectedLevel === "Doctoral") {
+        return ["doctoral", "doctorate", "phd"].some((keyword) =>
+            degreeLevel.includes(keyword)
+        );
+    }
+
+    return true;
+};
+
+const scholarshipMatchesSupportType = (scholarship, selectedSupportType) => {
+    if (!selectedSupportType) {
+        return true;
+    }
+
+    const searchable = [
+        scholarship.benefits,
+        scholarship.description,
+        scholarship.applicationProcess,
+    ]
+        .map(normalizeText)
+        .join(" ");
+
+    if (selectedSupportType === "Full Scholarship (Tuition + Living Costs)") {
+        return searchable.includes("full") || searchable.includes("living");
+    }
+
+    if (selectedSupportType === "Partial Scholarship (Tuition Only)") {
+        return searchable.includes("partial") || searchable.includes("tuition only");
+    }
+
+    if (selectedSupportType === "Stipend") {
+        return searchable.includes("stipend");
+    }
+
+    if (selectedSupportType === "Research Funding") {
+        return searchable.includes("research") || searchable.includes("funding");
+    }
+
+    return true;
+};
+
+const scholarshipMatchesProvider = (scholarship, providerText) => {
+    if (!providerText.trim()) {
+        return true;
+    }
+
+    const providerQuery = providerText.toLowerCase();
+    const providerData = [
+        scholarship.provider,
+        scholarship.providerName,
+        scholarship.providerType,
+        scholarship.institution,
+        scholarship.institutionName,
+        scholarship.providerId,
+    ]
+        .filter((value) => value != null)
+        .map((value) => String(value).toLowerCase());
+
+    return providerData.some((value) => value.includes(providerQuery));
 };
 
 export default function Scholarship() {
@@ -41,10 +122,6 @@ export default function Scholarship() {
     const loweredSearch = searchTerm.trim().toLowerCase();
 
     const filteredScholarships = scholarships.filter((scholarship) => {
-        const amount = Number(scholarship.amount);
-        const hasMinTuition = filters.minTuition !== "";
-        const hasMaxTuition = filters.maxTuition !== "";
-
         const matchesSearch =
             !loweredSearch ||
             [
@@ -58,28 +135,27 @@ export default function Scholarship() {
                 .filter(Boolean)
                 .some((value) => String(value).toLowerCase().includes(loweredSearch));
 
-        const matchesType = !filters.type || scholarship.status === filters.type;
-        const matchesLocation =
-            !filters.location || scholarship.studyIn === filters.location;
-        const matchesMajor =
-            !filters.major ||
-            String(scholarship.majorOffered || "")
-                .toLowerCase()
-                .includes(filters.major.toLowerCase());
-        const matchesMinTuition =
-            !hasMinTuition ||
-            (!Number.isNaN(amount) && amount >= Number(filters.minTuition));
-        const matchesMaxTuition =
-            !hasMaxTuition ||
-            (!Number.isNaN(amount) && amount <= Number(filters.maxTuition));
+        const matchesLevel = scholarshipMatchesLevel(scholarship, filters.levelOfStudy);
+        const matchesSupportType = scholarshipMatchesSupportType(
+            scholarship,
+            filters.supportType
+        );
+        const matchesProvider = scholarshipMatchesProvider(
+            scholarship,
+            filters.provider
+        );
+        const matchesMajorSearch =
+            !filters.majorSearch ||
+            normalizeText(scholarship.majorOffered).includes(
+                filters.majorSearch.toLowerCase()
+            );
 
         return (
             matchesSearch &&
-            matchesType &&
-            matchesLocation &&
-            matchesMajor &&
-            matchesMinTuition &&
-            matchesMaxTuition
+            matchesLevel &&
+            matchesSupportType &&
+            matchesProvider &&
+            matchesMajorSearch
         );
     });
 
@@ -90,11 +166,10 @@ export default function Scholarship() {
 
     const hasActiveFilters =
         searchTerm ||
-        filters.type ||
-        filters.location ||
-        filters.major ||
-        filters.minTuition ||
-        filters.maxTuition;
+        filters.levelOfStudy ||
+        filters.supportType ||
+        filters.provider ||
+        filters.majorSearch;
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-gray-900">
@@ -136,7 +211,7 @@ export default function Scholarship() {
                     </div>
 
                     <div className="mt-4">
-                        <FilterCard
+                        <ScholarshipFilterPanel
                             showFilters={showFilters}
                             setShowFilters={setShowFilters}
                             filters={filters}
