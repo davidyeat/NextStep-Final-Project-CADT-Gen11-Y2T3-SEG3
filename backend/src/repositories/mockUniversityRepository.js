@@ -4,97 +4,124 @@ const universities = [
     shortName: "CADT",
     type: "Public",
     websiteUrl: "https://www.cadt.edu.kh",
-    logoUrl: "https://example.com/logos/cadt.png",
-    coverImageUrl: "https://example.com/covers/cadt-campus.jpg",
-    province: "Phnom Penh",
+    logoUrl: "https://www.cadt.edu.kh/wp-content/uploads/2023/02/cadt_square_logo_boundary.jpg",
+    coverImageUrl: "https://cadt.edu.kh/wp-content/uploads/2024/06/Our-10th-Anniversary-Celebration-scaled.webp",
+    province: "",
     city: "Phnom Penh",
     email: "info@cadt.edu.kh",
     phoneNumber: "+855-23-999-000",
-    address: "St. 123, Phnom Penh",
-    description: "CADT is a leading institution in digital technology education in Cambodia.",
-    vision: "To be a center of excellence in digital innovation and entrepreneurship.",
-    mission: "To provide cutting-edge education and research opportunities in the field of digital technology."
+    address: "Bridge 2, National Road 6A, Sangkat Prek Leap, Khan Chroy Changva, Phnom Penh",
+    description: "CADT is a leading public research and education institution in Cambodia, dedicated to accelerating a vibrant, inclusive, and sustainable digital society.",
+    vision: ["To be the flagship public education and research institution, developing excellent digital talent and innovators, driving Cambodia toward a digital society."],
+    mission: ["To provide education, training, R&D and promote innovation on digital technology to students, civil servants, and innovators to contribute to the development of digital government, economy and society."]
   },
   {
     campusName: "Royal University of Phnom Penh",
     shortName: "RUPP",
     type: "Public",
     websiteUrl: "http://www.rupp.edu.kh",
-    logoUrl: "https://example.com/logos/rupp.png",
-    coverImageUrl: "https://example.com/covers/rupp-campus.jpg",
-    province: "Phnom Penh",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/km/e/ee/Rupp_logo.png",
+    coverImageUrl: "https://www.rupp.edu.kh/assets/researchers_rupp.png",
+    province: "",
     city: "Phnom Penh",
     email: "info@rupp.edu.kh",
-    phoneNumber: "+855-23-883-445",
-    address: "Russian Federation Boulevard, Tuol Kouk, Phnom Penh",
-    description: "The Royal University of Phnom Penh is the oldest and largest public university in Cambodia, established in 1960.",
-    vision: "To become Cambodia's flagship university with regional and international recognition in teaching, research, and community service.",
-    mission: "To build high-quality human resources with excellent knowledge, skills, and moral values to contribute to national development."
+    phoneNumber: "(+855) 23 724 370", 
+    address: "Russian Federation Blvd, Phnom Penh, Cambodia",
+    description: "The Royal University of Phnom Penh is Cambodia's oldest and largest public university, offering degrees in science, technology, humanities, and social sciences.",
+    vision: ["Our vision is to be Cambodia’s flagship university with regional standing in teaching and learning, research and innovation, and social engagement by 2030."],
+    mission: [
+      "Equipping students with the essential knowledge, skills, competence, values, and attitudes required by the information- and knowledge-based society",
+      "Providing high-quality research and innovations",
+      "Being actively engaged with society"
+    ]
   },
   {
     campusName: "Institute of Technology of Cambodia",
     shortName: "ITC",
     type: "Public",
     websiteUrl: "https://www.itc.edu.kh",
-    logoUrl: "https://example.com/logos/itc.png",
-    coverImageUrl: "https://example.com/covers/itc-campus.jpg",
-    province: "Phnom Penh",
+    logoUrl: "https://itc.edu.kh/wp-content/uploads/2021/02/cropped-Logo-ITC-1024x1004.png",
+    coverImageUrl: "https://www.itc.edu.kh/assets/images/itc-campus.jpg",
+    province: "",
     city: "Phnom Penh",
     email: "info@itc.edu.kh",
-    phoneNumber: "+855-23-880-370",
-    address: "Russian Federation Boulevard, Tuol Kouk, Phnom Penh",
-    description: "ITC is a premier higher education institution in Cambodia specializing in engineering, technology, and sciences.",
-    vision: "To be a leading university in science and technology recognized nationally, regionally, and internationally.",
-    mission: "To provide high-quality education and research in engineering and technology to meet the socioeconomic needs of the country."
+    phoneNumber: "+855 23 880 370 / 982 404",
+    address: "PO Box 86, Russian Federation Blvd., Sangkat Teuklaak 1, Khan Toul Kork, 120404, Phnom Penh, Cambodia",
+    description: "The Institute of Technology of Cambodia is recognized as the top leading the public higher education institution in engineering and technology in Cambodia. The Institute was founded in 1964 as Institut Technique Supérieur de l’Amitié Khméro–Soviétique (ITSAKS), in cooperation with the Soviet Union from 1964 to 1975 and from 1980 to 1991. In 1993, the Institute was renamed as Institut de Technologie du Cambodge, it was operated by French until 2004. From 2004 to present, the Institute has been operated by Cambodian, under the Ministry of Education Youth and Sport.",
+    vision: ["ITC aspires to be the foremost university in Cambodia, excelling in education and research in Science, Technology and Engineering. Our vision extends to become one of the premier institutions in the region, excellence in Science, Technology and Engineering."],
+    mission: [
+      "Cultivate talented and skilled graduates in science, technology and engineering by 2030",
+      "Drive applied research aims at fostering start-up and technology transfer by 2030"
+    ]
   },
   {
     campusName: "National University of Management",
     shortName: "NUM",
     type: "Public",
-    websiteUrl: "https://www.num.edu.kh",
-    logoUrl: "https://example.com/logos/num.png",
-    coverImageUrl: "https://example.com/covers/num-campus.jpg",
-    province: "Phnom Penh",
+    websiteUrl: "https://numuniversity.com/",
+    logoUrl: "https://numuniversity.com/wp-content/uploads/2025/08/NUM-Logo-oiriginal-1.png",
+    coverImageUrl: "https://academics-bucket-sj19asxm-prod.s3.ap-southeast-1.amazonaws.com/8c724f2a-32b5-4b3d-80b3-14c4b365388d/d64e6f44-6806-4b80-987f-735e6bc9ad63.jpg",
+    province: "",
     city: "Phnom Penh",
-    email: "info@num.edu.kh",
-    phoneNumber: "+855-23-428-120",
-    address: "Corner of Christopher Howes (St. 96) and Monivong Blvd, Daun Penh, Phnom Penh",
-    description: "NUM is a leading public university in Cambodia recognized for its excellence in management, economics, and business education.",
-    vision: "To be a premier university in entrepreneurship, innovation, and digital business leadership in the region.",
-    mission: "To offer innovative academic programs that develop highly skilled professionals and entrepreneurs for the global market."
+    email: "sengbunthoeun@num.edu.kh",
+    phoneNumber: "+855 95 504 179",
+    address: "St.96 Christopher Howes, Khan Daun Penh, Phnom Penh, Cambodia",
+    description: "The National University of Management (NUM) is Cambodia’s leading university for business, management, economics, law, and digital economy studies. Located in Phnom Penh, NUM offers bachelor’s, master’s, and doctoral programs with strong international partnerships and a focus on research, innovation, and entrepreneurship",
+    vision: [
+      "NUM is dedicated to becoming a leading hub for academic research and innovation, shaping new knowledge both within Cambodia and on the global stage. Faculty members and teachers are actively engaged in conducting and publishing new research, and students, especially at the graduate level, are crucial to this process."
+    ],
+    mission: [
+      "Cultivate Innovative Leaders, Managers, and Entrepreneurs for Society",
+      "The mission outlines the practical steps to achieve the vision. NUM is committed to training proactive, creative, and strategic professionals who are equipped with the skills to drive progress and make a meaningful impact on the economy and society."
+    ]
   },
   {
     campusName: "Zaman University (Paragon International University)",
     shortName: "ParagonIU",
     type: "Private",
     websiteUrl: "https://www.paragoniu.edu.kh",
-    logoUrl: "https://example.com/logos/paragon.png",
-    coverImageUrl: "https://example.com/covers/paragon-campus.jpg",
-    province: "Phnom Penh",
+    logoUrl: "https://cdn.brandfetch.io/domain/paragoniu.edu.kh/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
+    coverImageUrl: "https://sustainability-ai.org/paragon_university.jpg",
+    province: "",
     city: "Phnom Penh",
     email: "info@paragoniu.edu.kh",
     phoneNumber: "+855-23-996-111",
-    address: "St. 315, Boeng Kak 1, Tuol Kouk, Phnom Penh",
+    address: "No. 8, St. 315,Boeng Kak 1, Tuol Kork, Phnom Penh, Cambodia, 12151",
     description: "Paragon International University is a leading private university in Cambodia offering international-standard education completely in English.",
-    vision: "To become a center of excellence in teaching, research, and innovation in Southeast Asia.",
-    mission: "To foster global citizens who think critically, innovate fearlessly, and lead ethically."
+    vision: [
+      "Paragon International University strives to become a leading, private, higher education institution in Cambodia in terms of the quality of teaching, research, student enrichment, community service, as well as regional and global engagement."
+    ],
+    mission: [
+      "Become a leading institution in providing students with inquiry-based study and scholarship, yielding: disciplinary expertise, soft skills, cross-cultural and technological competence, an innovative mindset, employability, and a sense of social responsibility",
+      "Become a leading institution in engineering, technology, and the administrative and social sciences",
+      "Become a leading institution modeling good governance, in which administrative, financial, and student services are digitized, transparent, inclusive, and accountable to all stakeholders",
+      "Become a leading institution in producing research, consultancy, and community services",
+      "Become a leading institution that embraces life-long education, regional and global relationships, and the highest ethical standards."
+    ]
   },
   {
     campusName: "American University of Phnom Penh",
     shortName: "AUPP",
     type: "Private",
     websiteUrl: "https://www.aupp.edu.kh",
-    logoUrl: "https://example.com/logos/aupp.png",
-    coverImageUrl: "https://example.com/covers/aupp-campus.jpg",
-    province: "Phnom Penh",
+    logoUrl: "https://www.aupp.edu.kh/wp-content/uploads/AUPP-Block-Logo.png",
+    coverImageUrl: "https://www.aupp.edu.kh/wp-content/uploads/AUPP-Building.jpg",
+    province: "",
     city: "Phnom Penh",
     email: "info@aupp.edu.kh",
     phoneNumber: "+855-23-990-023",
-    address: "St. 201R, Russey Keo, Phnom Penh",
-    description: "AUPP is a private university offering rigorous, American-style dual degree higher education programs in Cambodia.",
-    vision: "To be a center of academic excellence and a driving force for socioeconomic growth in Cambodia and ASEAN.",
-    mission: "To provide a high-quality American-style education that empowers students to achieve career success and global competency."
+    address: "https://maps.app.goo.gl/BKvPNJT4QLTKxsYL6",
+    description: "The American University of Phnom Penh (AUPP) is a premier, private higher education institution in Cambodia. Established in 2013, it offers an American-style liberal arts curriculum with dual-degree programs in partnership with U.S. institutions like the University of Arizona.",
+    vision: [
+      "The American University of Phnom Penh (AUPP) will be a leading center of academic excellence in Cambodia and in Asia.",
+      "Recognized as thought leaders, we will be at the forefront of innovation and the partner of choice for industry."
+    ],
+    mission: [
+      "AUPP is a private English language higher-education institution in Cambodia, offering high-quality American-style education that is grounded in the latest teaching & learning theories and the culture of Cambodia and Asia.",
+      "The university fosters socially responsible behavior, life-long learning, and academic and professional excellence, producing critical thinkers, innovators, and ethical leaders who will make significant contributions."
+    ]
   },
+  
   {
     campusName: "Royal University of Law and Economics",
     shortName: "RULE",
@@ -108,8 +135,12 @@ const universities = [
     phoneNumber: "+855-23-210-162",
     address: "Monivong Blvd, Chamkar Mon, Phnom Penh",
     description: "RULE is the first higher education institution in Cambodia specializing in legal and economic disciplines, founded in 1953.",
-    vision: "To be a leading institution for legal, administrative, and economic education in Southeast Asia.",
-    mission: "To produce competent professionals, researchers, and public servants equipped with deep legal and economic knowledge."
+    vision: [
+      "To be a leading institution for legal, administrative, and economic education in Southeast Asia."
+    ],
+    mission: [
+      "To produce competent professionals, researchers, and public servants equipped with deep legal and economic knowledge."
+    ]
   },
   {
     campusName: "University of Cambodia",
@@ -124,8 +155,12 @@ const universities = [
     phoneNumber: "+855-23-993-274",
     address: "Northbridge Road, Sen Sok, Phnom Penh",
     description: "The University of Cambodia is a private higher education institution that aims to train leaders for tomorrow's Cambodia.",
-    vision: "To prepare future generations of leaders to navigate an increasingly complex, globalized world.",
-    mission: "To offer student-centered education that encourages critical thinking, cross-cultural understanding, and academic freedom."
+    vision: [
+      "To prepare future generations of leaders to navigate an increasingly complex, globalized world."
+    ],
+    mission: [
+      "To offer student-centered education that encourages critical thinking, cross-cultural understanding, and academic freedom."
+    ]
   },
   {
     campusName: "Royal University of Agriculture",
@@ -140,8 +175,12 @@ const universities = [
     phoneNumber: "+855-23-219-690",
     address: "St. 217, Dangkao, Phnom Penh",
     description: "RUA is the leading public agricultural university in Cambodia, overseeing vital research and development in the agricultural sector.",
-    vision: "To be a leading agricultural institution recognized for excellence in human resources training and technology transfer.",
-    mission: "To contribute to sustainable agricultural development and food security through education, research, and community outreach."
+    vision: [
+      "To be a leading agricultural institution recognized for excellence in human resources training and technology transfer."
+    ],
+    mission: [
+      "To contribute to sustainable agricultural development and food security through education, research, and community outreach."
+    ]
   },
   {
     campusName: "Paññāsāstra University of Cambodia",
@@ -156,8 +195,12 @@ const universities = [
     phoneNumber: "+855-23-990-153",
     address: "Norodom Boulevard, Tonle Bassac, Chamkar Mon, Phnom Penh",
     description: "PUC is a private university offering English-based education with a strong emphasis on professional and ethical values.",
-    vision: "To build an academic community that fosters peace, justice, and sustainable development.",
-    mission: "To provide quality education accessible to all segments of society, preparing students for leadership in a changing world."
+    vision: [
+      "To build an academic community that fosters peace, justice, and sustainable development."
+    ],
+    mission: [
+      "To provide quality education accessible to all segments of society, preparing students for leadership in a changing world."
+    ]
   },
   {
     campusName: "National University of Battambang",
@@ -172,8 +215,12 @@ const universities = [
     phoneNumber: "+855-53-952-905",
     address: "National Road 5, Sangkat Prek Preah Sdach, Battambang",
     description: "NUBB is a vital regional public university providing higher education opportunities in the northwest region of Cambodia.",
-    vision: "To be a leading regional university driving sustainable rural development and agricultural innovation.",
-    mission: "To offer quality local educational programs that respond directly to regional market demands and societal needs."
+    vision: [
+      "To be a leading regional university driving sustainable rural development and agricultural innovation."
+    ],
+    mission: [
+      "To offer quality local educational programs that respond directly to regional market demands and societal needs."
+    ]
   }
 ];
 

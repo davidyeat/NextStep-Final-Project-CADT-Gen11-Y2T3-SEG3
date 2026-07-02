@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BookOpenCheck, GraduationCap, Sparkles } from "lucide-react";
 import useAuth from "../../hooks/useAuth";
-import AuthPageShell from "../../components/auth/AuthPageShell";
 import AuthField from "../../components/auth/AuthField";
-import AuthFeatureList from "../../components/auth/AuthFeatureList";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -17,19 +14,6 @@ export default function SignUp() {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const features = [
-    {
-      title: "Create a student profile",
-      description:
-        "Store your basic details so recommendations can be more relevant.",
-    },
-    {
-      title: "Unlock smart suggestions",
-      description:
-        "Use your profile to get more useful university and scholarship matches.",
-    },
-  ];
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,41 +49,8 @@ export default function SignUp() {
   };
 
   return (
-    <AuthPageShell
-      eyebrow="Join NextStep"
-      title="Create your student account"
-      description="Set up a personal profile to search universities, discover scholarships, and get recommendations built around your goals."
-      features={[
-        {
-          icon: GraduationCap,
-          title: "Personalized profile",
-          description:
-            "Add your basic details once and use them across the platform.",
-          color: "#1D4ED8",
-          bg: "#EFF6FF",
-        },
-        {
-          icon: Sparkles,
-          title: "Better recommendations",
-          description:
-            "Help NextStep suggest more relevant study opportunities for you.",
-          color: "#0F766E",
-          bg: "#ECFDF5",
-        },
-        {
-          icon: BookOpenCheck,
-          title: "All-in-one exploration",
-          description:
-            "Search universities, majors, and scholarships from a single account.",
-          color: "#B45309",
-          bg: "#FFFBEB",
-        },
-      ]}
-      footerText="Already have an account?"
-      footerLinkText="Sign in"
-      footerLinkTo="/login"
-    >
-      <div>
+    <section className="mx-auto w-full max-w-7xl flex justify-center items-center px-6 py-4 lg:px-10">
+      <div className="max-w-xl rounded-3xl border border-sky-100 bg-linear-to-br from-white via-slate-50 to-sky-50 p-8 shadow-xl shadow-sky-100/40 lg:p-12">
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">
             Sign up
@@ -157,11 +108,6 @@ export default function SignUp() {
             autoComplete="new-password"
           />
 
-          <p className="text-xs leading-6 text-gray-500">
-            By creating an account, you agree to use NextStep to explore
-            educational opportunities responsibly.
-          </p>
-
           <button
             type="submit"
             disabled={isSubmitting}
@@ -170,9 +116,7 @@ export default function SignUp() {
             {isSubmitting ? "Creating account..." : "Create account"}
           </button>
         </form>
-
-        <AuthFeatureList items={features} />
       </div>
-    </AuthPageShell>
+    </section>
   );
 }

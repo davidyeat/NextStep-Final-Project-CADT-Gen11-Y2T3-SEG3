@@ -1,101 +1,66 @@
 import sequelize from "../config/database.js";
 import University from "../models/university.js";
+import { Op } from "sequelize";
 
 // Get all universities
 export const getAllUniversities = async () => {
-  try {
-    const universities = await University.findAll();
-    return universities;
-  } catch (error) {
-    console.error("Error fetching universities:", error);
-    throw error;
-  }
+    return await University.findAll();
 }
 
 // Get a university by ID
-export const getUniversityById = async (id) => {
-  try {
-    const university = await University.findOne({where: {universityId: id}});
-    return university;
-  } catch (error) {
-    console.error("Error fetching university:", error);
-    throw error;
-  }
+export const getUniversityById = async (universityId) => {
+    return await University.findOne({where: {universityId: universityId}});
 }
 
 // Create a new university
-export const createUniversity = async (data) => {
-  try {
-    const newUniversity = await University.create({
-      campusName: data.campusName,
-      shortName: data.shortName,
-      type: data.type,
-      websiteUrl: data.websiteUrl,
-      logoUrl: data.logoUrl,
-      coverImageUrl: data.coverImageUrl,
-      province: data.province,
-      city: data.city,
-      email: data.email,
-      phoneNumber: data.phoneNumber,
-      address: data.address,
-      description: data.description,
-      vision: data.vision,
-      mission: data.mission
-    });
-    console.log("University created successfully:", newUniversity.id);
-    return newUniversity;
-  } catch (error) {
-    console.error("Error creating university:", error);
-    throw error;
-  }
+export const createUniversity = async (universitydata) => {
+    return await University.create(universitydata);
 }
 
 // Update an existing university
-export const updateUniversity = async(id, data) => {
-  try {
-    const university = await University.findOne({where: {universityId: id}});
-    if (!university) {
-      throw new Error("University not found");
-    }
-    const updated = await university.update({
-      campusName: data.campusName,
-      shortName: data.shortName,
-      type: data.type,
-      websiteUrl: data.websiteUrl,
-      logoUrl: data.logoUrl,
-      coverImageUrl: data.coverImageUrl,
-      province: data.province,
-      city: data.city,
-      email: data.email,
-      phoneNumber: data.phoneNumber,
-      address: data.address,
-      description: data.description,
-      vision: data.vision,
-      mission: data.mission
-    });
-
-    console.log("University updated successfully:", university.id);
-    return updated;
-  } catch (error) {
-    console.error("Error updating university:", error);
-    throw error;
-  }
+export const updateUniversity = async(universityId, universitydata) => {
+    return await University.update(universitydata, {where: {universityId}})
 }
 
 // Delete a university
-export const deleteUniversity = async (id) => {
-  try {
-    const university = await University.findOne({where: {universityId: id}});
-    if (!university) {
-      throw new Error("University not found");
-    }
-    await university.destroy();
-    console.log("University deleted successfully:", id);
-    return true;
-  } catch (error) {
-    console.error("Error deleting university:", error);
-    throw error;
-  }
+export const deleteUniversity = async (universityId) => {
+    return await University.destroy({where: {universityId}});
 }
 
-// GET /api/universities/search?query=universityName
+// Search universities
+export const searchUniversities = async (filters) => {
+    const where = {};
+
+    // Search by campusName
+    if (filters.search && filters.search.trim() !== "") {
+        where.campusName = { [Op.like]: `%${filters.search}%` };
+    }
+
+    // Filter by type
+    if (filters.type && filters.type.trim() !== "") {
+        where.type = { [Op.eq]: filters.type };
+    }
+
+    // Filter by province
+    if (filters.province && filters.province.trim() !== "") {
+        where.province = { [Op.eq]: filters.province };
+    }
+
+    // Filter by city
+    if (filters.city && filters.city.trim() !== "") {
+        where.city = { [Op.eq]: filters.city };
+    }
+
+    // Filter by Fee Range
+    if (filters.minFee || filters.maxFee) {
+        where.tuition_fee = {};
+        if (filters.minFee) {
+            where.tuition_fee[Op.gte] = filters.minFee;
+        }
+        if (filters.maxFee) {
+            where.tuition_fee[Op.lte] = filters.maxFee;
+        }
+    }
+
+    return await University.findAll({ where });
+}

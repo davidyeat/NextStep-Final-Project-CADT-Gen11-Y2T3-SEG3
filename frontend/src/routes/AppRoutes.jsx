@@ -8,6 +8,7 @@ import Major from "../pages/Major";
 import About from "../pages/About";
 import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
+import UniversityDetail from "../pages/UniversityDetail";
 
 export default function AppRoutes() {
     return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/universities" element={<University />} />
+                    <Route path="/university-details/:universityId" element={<UniversityDetail />} />
                     <Route path="/scholarships" element={<Scholarship />} />
                     <Route path="/majors" element={<Major />} />
                     <Route path="/about-us" element={<About />} />

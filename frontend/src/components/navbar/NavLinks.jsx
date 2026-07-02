@@ -10,7 +10,7 @@ export default function NavLinks() {
           to={link.path}
           // className="text-lg font-medium text-gray-700 hover:text-blue-600"
           className={({ isActive }) =>
-            `text-lg font font-medium transition ${isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`
+            `text-md font font-medium transition ${isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`
           }
         >
           {link.name}

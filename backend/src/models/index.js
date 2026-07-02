@@ -9,7 +9,6 @@ import Facility from "./facility.js";
 import Admission from "./admission.js";
 import Department from "./department.js";
 import Major from "./major.js";
-import MajorCategory from "./majorCategory.js";
 import Scholarship from "./scholarship.js";
 import FundingType from "./fundingType.js";
 
@@ -36,10 +35,6 @@ Department.belongsTo(University, {foreignKey: 'universityId'});
 // Department & Major (One-to-Many)
 Department.hasMany(Major, {foreignKey: 'departmentId'});
 Major.belongsTo(Department, {foreignKey: 'departmentId'});
-
-// Major & MajorCategory (One-to-Many)
-MajorCategory.hasMany(Major, {foreignKey: 'categoryId'});
-Major.belongsTo(MajorCategory, {foreignKey: 'categoryId'});
 
 // FundingType & Scholarship (One-to-Many)
 FundingType.hasMany(Scholarship, {foreignKey: 'fundingId'});
@@ -68,6 +63,6 @@ Major.belongsToMany(Scholarship, {through: 'Scholarship_Major', foreignKey: 'maj
 
 export {
     User, Role, Profile, University,Facility,
-    Admission, Department, Major, MajorCategory, 
+    Admission, Department, Major,
     Scholarship, FundingType, Provider
 };

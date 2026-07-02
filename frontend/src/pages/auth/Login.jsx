@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BookOpenCheck, GraduationCap, Sparkles } from "lucide-react";
 import useAuth from "../../hooks/useAuth";
-import AuthPageShell from "../../components/auth/AuthPageShell";
 import AuthField from "../../components/auth/AuthField";
-import AuthFeatureList from "../../components/auth/AuthFeatureList";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,19 +9,6 @@ export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const features = [
-    {
-      title: "Personalized access",
-      description:
-        "Continue your journey with recommendations tailored to your profile.",
-    },
-    {
-      title: "Fast discovery",
-      description:
-        "Return to search, filtering, and saved education opportunities instantly.",
-    },
-  ];
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -50,41 +34,8 @@ export default function Login() {
   };
 
   return (
-    <AuthPageShell
-      eyebrow="Welcome back"
-      title="Sign in to continue your NextStep journey"
-      description="Access your personalized profile, saved universities, and scholarship discovery tools from one secure place."
-      features={[
-        {
-          icon: GraduationCap,
-          title: "Your student profile",
-          description:
-            "Resume where you left off and keep your recommendations aligned.",
-          color: "#1D4ED8",
-          bg: "#EFF6FF",
-        },
-        {
-          icon: Sparkles,
-          title: "Guided recommendations",
-          description:
-            "See smarter suggestions based on your interests and academic goals.",
-          color: "#0F766E",
-          bg: "#ECFDF5",
-        },
-        {
-          icon: BookOpenCheck,
-          title: "Centralized access",
-          description:
-            "Move between universities, majors, and scholarships without searching again.",
-          color: "#B45309",
-          bg: "#FFFBEB",
-        },
-      ]}
-      footerText="Need an account?"
-      footerLinkText="Create one here"
-      footerLinkTo="/sign-up"
-    >
-      <div>
+    <section className="mx-auto w-full max-w-7xl flex justify-center items-center px-6 py-10 lg:px-10">
+      <div className="mx-auto max-w-xl rounded-3xl border border-sky-100 bg-linear-to-br from-white via-slate-50 to-sky-50 p-8 shadow-xl shadow-sky-100/40 lg:p-12">
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">
             Login
@@ -145,9 +96,7 @@ export default function Login() {
             {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
         </form>
-
-        <AuthFeatureList items={features} />
       </div>
-    </AuthPageShell>
+    </section>
   );
 }

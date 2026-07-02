@@ -14,9 +14,9 @@ const University = sequelize.define('University', {
     email: {type: DataTypes.STRING},
     phoneNumber: {type: DataTypes.STRING},
     address: {type: DataTypes.TEXT},
-    description: {type: DataTypes.TEXT},
-    vision: {type: DataTypes.TEXT},
-    mission: {type: DataTypes.TEXT}
+    description: {type: DataTypes.JSON},
+    vision: {type: DataTypes.JSON},
+    mission: {type: DataTypes.JSON}
 });
 
 export default University;

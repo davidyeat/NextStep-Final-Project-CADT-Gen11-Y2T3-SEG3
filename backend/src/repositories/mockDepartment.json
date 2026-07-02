@@ -1,0 +1,9 @@
+// Department Mock Data...
+
+[
+    {
+        "departmentId": 1,
+        "universityId": 1,
+        "name": "Computer Science"
+    }
+]

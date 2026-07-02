@@ -22,7 +22,6 @@ export default function MobileMenu({ isAuthenticated, onLogout }) {
       {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-        aria-hidden={!isOpen}
       >
         <div className="absolute inset-x-0 top-0 bg-white shadow-xl">
           {/* Header */}
@@ -32,14 +31,13 @@ export default function MobileMenu({ isAuthenticated, onLogout }) {
               type="button"
               onClick={closeMenu}
               className="p-1.5 rounded-3xl cursor-pointer hover:bg-gray-100 transition text-gray-400"
-              aria-label="Close menu"
             >
               <X size={23} />
             </button>
           </div>
           <div>
             {/* Navigation */}
-            <nav className="md:hidden px-4 py-4 space-y-1">
+            <nav className="px-4 py-4 space-y-1">
               {navItems.map((link) => (
                 <NavLink
                   key={link.path}

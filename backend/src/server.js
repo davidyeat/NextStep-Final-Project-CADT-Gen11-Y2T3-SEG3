@@ -46,12 +46,6 @@ app.use(express.static(path.resolve("src/public")));
 app.set("view engine", "ejs");
 app.set("views", path.resolve("src/views"));
 
-// Page routes
-app.get("/", (req, res) => res.render("home"));
-app.get("/login", (req, res) => res.render("login"));
-app.get("/register", (req, res) => res.render("signup"));
-app.get("/smoothies", (req, res) => res.render("smoothies"));
-
 // Routes
 app.use('/docs', serveSwagger, setupSwagger);
 app.use("/api/universities", universityRoutes);
@@ -67,7 +61,7 @@ const PORT = ENV.PORT || 4000;
 
 async function startServer() {
   try {
-    await sequelize.sync({force: false});
+    await sequelize.sync({alter: true});
     console.log("✅ Database models synchronized successfully.");
 
     app.listen(PORT, () => {
