@@ -1,16 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { BookOpenText, Loader2, Search, X } from "lucide-react";
 import ScholarshipCard from "../components/ScholarshipCard";
-import ScholarshipFilterCard from "../components/ScholarshipFilterCard";
+import FilterCard from "../components/FilterCard";
 import { getScholarships } from "../services/scholarshipService";
 
 const initialFilters = {
-    studyIn: "",
-    degreeLevel: "",
-    status: "",
-    currency: "",
-    minAmount: "",
-    maxAmount: "",
+    type: "",
+    location: "",
+    major: "",
+    minTuition: "",
+    maxTuition: "",
 };
 
 export default function Scholarship() {
@@ -39,64 +38,50 @@ export default function Scholarship() {
         fetchScholarships();
     }, []);
 
-    const filterOptions = useMemo(() => {
-        const uniqueSorted = (items) =>
-            [...new Set(items.filter(Boolean))].sort((first, second) =>
-                String(first).localeCompare(String(second))
-            );
+    const loweredSearch = searchTerm.trim().toLowerCase();
 
-        return {
-            studyIn: uniqueSorted(scholarships.map((item) => item.studyIn)),
-            degreeLevel: uniqueSorted(scholarships.map((item) => item.degreeLevel)),
-            status: uniqueSorted(scholarships.map((item) => item.status)),
-            currency: uniqueSorted(scholarships.map((item) => item.currency)),
-        };
-    }, [scholarships]);
+    const filteredScholarships = scholarships.filter((scholarship) => {
+        const amount = Number(scholarship.amount);
+        const hasMinTuition = filters.minTuition !== "";
+        const hasMaxTuition = filters.maxTuition !== "";
 
-    const filteredScholarships = useMemo(() => {
-        const loweredSearch = searchTerm.trim().toLowerCase();
+        const matchesSearch =
+            !loweredSearch ||
+            [
+                scholarship.title,
+                scholarship.studyIn,
+                scholarship.degreeLevel,
+                scholarship.status,
+                scholarship.description,
+                scholarship.majorOffered,
+            ]
+                .filter(Boolean)
+                .some((value) => String(value).toLowerCase().includes(loweredSearch));
 
-        return scholarships.filter((scholarship) => {
-            const amount = Number(scholarship.amount);
-            const hasMinAmount = filters.minAmount !== "";
-            const hasMaxAmount = filters.maxAmount !== "";
+        const matchesType = !filters.type || scholarship.status === filters.type;
+        const matchesLocation =
+            !filters.location || scholarship.studyIn === filters.location;
+        const matchesMajor =
+            !filters.major ||
+            String(scholarship.majorOffered || "")
+                .toLowerCase()
+                .includes(filters.major.toLowerCase());
+        const matchesMinTuition =
+            !hasMinTuition ||
+            (!Number.isNaN(amount) && amount >= Number(filters.minTuition));
+        const matchesMaxTuition =
+            !hasMaxTuition ||
+            (!Number.isNaN(amount) && amount <= Number(filters.maxTuition));
 
-            const matchesSearch =
-                !loweredSearch ||
-                [
-                    scholarship.title,
-                    scholarship.studyIn,
-                    scholarship.degreeLevel,
-                    scholarship.status,
-                    scholarship.description,
-                    scholarship.majorOffered,
-                ]
-                    .filter(Boolean)
-                    .some((value) => String(value).toLowerCase().includes(loweredSearch));
-
-            const matchesStudyIn =
-                !filters.studyIn || scholarship.studyIn === filters.studyIn;
-            const matchesDegreeLevel =
-                !filters.degreeLevel || scholarship.degreeLevel === filters.degreeLevel;
-            const matchesStatus = !filters.status || scholarship.status === filters.status;
-            const matchesCurrency =
-                !filters.currency || scholarship.currency === filters.currency;
-            const matchesMinAmount =
-                !hasMinAmount || (!Number.isNaN(amount) && amount >= Number(filters.minAmount));
-            const matchesMaxAmount =
-                !hasMaxAmount || (!Number.isNaN(amount) && amount <= Number(filters.maxAmount));
-
-            return (
-                matchesSearch &&
-                matchesStudyIn &&
-                matchesDegreeLevel &&
-                matchesStatus &&
-                matchesCurrency &&
-                matchesMinAmount &&
-                matchesMaxAmount
-            );
-        });
-    }, [filters, scholarships, searchTerm]);
+        return (
+            matchesSearch &&
+            matchesType &&
+            matchesLocation &&
+            matchesMajor &&
+            matchesMinTuition &&
+            matchesMaxTuition
+        );
+    });
 
     const clearFilters = () => {
         setFilters(initialFilters);
@@ -105,12 +90,11 @@ export default function Scholarship() {
 
     const hasActiveFilters =
         searchTerm ||
-        filters.studyIn ||
-        filters.degreeLevel ||
-        filters.status ||
-        filters.currency ||
-        filters.minAmount ||
-        filters.maxAmount;
+        filters.type ||
+        filters.location ||
+        filters.major ||
+        filters.minTuition ||
+        filters.maxTuition;
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-gray-900">
@@ -152,14 +136,13 @@ export default function Scholarship() {
                     </div>
 
                     <div className="mt-4">
-                        <ScholarshipFilterCard
+                        <FilterCard
                             showFilters={showFilters}
                             setShowFilters={setShowFilters}
                             filters={filters}
                             setFilters={setFilters}
                             hasActiveFilters={hasActiveFilters}
                             clearFilters={clearFilters}
-                            options={filterOptions}
                         />
                     </div>
                 </div>
