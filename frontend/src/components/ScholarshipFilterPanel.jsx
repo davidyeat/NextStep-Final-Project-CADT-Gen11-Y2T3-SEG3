@@ -11,29 +11,9 @@ const SUPPORT_OPTIONS = [
 
 const PROVIDER_OPTIONS = [
   "Universities",
-  "Government Programs",
-  "NGOs",
-  "Private Organizations",
-  "Fulbright Program",
-  "Chevening",
-  "DAAD",
-  "Erasmus+",
-  "Asian Development Bank",
-  "UNESCO",
-];
-
-const MAJOR_OPTIONS = [
-  "Computer Science",
-  "Engineering",
-  "Medicine",
-  "Business",
-  "Social Sciences",
-  "Information Technology",
-  "Arts",
-  "Law",
-  "Education",
-  "Science",
-  "Other",
+  "Government",
+  "International",
+  "Private",
 ];
 
 export default function ScholarshipFilterPanel({
@@ -142,7 +122,8 @@ export default function ScholarshipFilterPanel({
               <label className="mb-1.5 block text-xs font-medium text-gray-500">
                 Major
               </label>
-              <select
+              <input
+                type="text"
                 value={filters.majorSearch}
                 onChange={(event) =>
                   setFilters((current) => ({
@@ -150,15 +131,9 @@ export default function ScholarshipFilterPanel({
                     majorSearch: event.target.value,
                   }))
                 }
-                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-700 shadow-sm transition focus:border-sky-300 focus:outline-none"
-              >
-                <option value="">All majors</option>
-                {MAJOR_OPTIONS.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
+                placeholder="Search by major"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-700 shadow-sm transition placeholder:text-gray-400 focus:border-sky-300 focus:outline-none"
+              />
             </div>
 
             <div className="lg:col-span-2">
