@@ -1,123 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BookOpenText, Loader2, Search, X } from "lucide-react";
 import ScholarshipCard from "../components/ScholarshipCard";
 import ScholarshipFilterPanel from "../components/ScholarshipFilterPanel";
-import { getScholarships } from "../services/scholarshipService";
-
-const initialFilters = {
-    levelOfStudy: "",
-    supportType: "",
-    provider: "",
-    majorSearch: "",
-};
-
-const normalizeText = (value) => String(value || "").toLowerCase();
-
-const scholarshipMatchesLevel = (scholarship, selectedLevel) => {
-    if (!selectedLevel) {
-        return true;
-    }
-
-    const degreeLevel = normalizeText(scholarship.degreeLevel);
-
-    if (selectedLevel === "Undergraduate") {
-        return ["undergraduate", "bachelor", "ba", "bsc"].some((keyword) =>
-            degreeLevel.includes(keyword)
-        );
-    }
-
-    if (selectedLevel === "Graduate") {
-        return ["graduate", "master", "mba", "ma", "msc"].some((keyword) =>
-            degreeLevel.includes(keyword)
-        );
-    }
-
-    if (selectedLevel === "Doctoral") {
-        return ["doctoral", "doctorate", "phd"].some((keyword) =>
-            degreeLevel.includes(keyword)
-        );
-    }
-
-    return true;
-};
-
-const scholarshipMatchesSupportType = (scholarship, selectedSupportType) => {
-    if (!selectedSupportType) {
-        return true;
-    }
-
-    const searchable = [
-        scholarship.benefits,
-        scholarship.description,
-        scholarship.applicationProcess,
-    ]
-        .map(normalizeText)
-        .join(" ");
-
-    if (selectedSupportType === "Full Scholarship (Tuition + Living Costs)") {
-        return searchable.includes("full") || searchable.includes("living");
-    }
-
-    if (selectedSupportType === "Partial Scholarship (Tuition Only)") {
-        return searchable.includes("partial") || searchable.includes("tuition only");
-    }
-
-    if (selectedSupportType === "Stipend") {
-        return searchable.includes("stipend");
-    }
-
-    if (selectedSupportType === "Research Funding") {
-        return searchable.includes("research") || searchable.includes("funding");
-    }
-
-    return true;
-};
-
-const scholarshipMatchesProvider = (scholarship, providerText) => {
-    if (!providerText.trim()) {
-        return true;
-    }
-
-    const providerQuery = providerText.toLowerCase();
-    const providerData = [
-        scholarship.provider,
-        scholarship.providerName,
-        scholarship.providerType,
-        scholarship.institution,
-        scholarship.institutionName,
-        scholarship.providerId,
-    ]
-        .filter((value) => value != null)
-        .map((value) => String(value).toLowerCase());
-
-    return providerData.some((value) => value.includes(providerQuery));
-};
+import {
+    initialScholarshipFilters,
+    normalizeText,
+    scholarshipList,
+    scholarshipMatchesLevel,
+    scholarshipMatchesProvider,
+    scholarshipMatchesSupportType,
+} from "../manual data/scholarshipData";
 
 export default function Scholarship() {
-    const [scholarships, setScholarships] = useState([]);
+    const [scholarships] = useState(scholarshipList);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filters, setFilters] = useState(initialFilters);
+    const [filters, setFilters] = useState(initialScholarshipFilters);
     const [showFilters, setShowFilters] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        const fetchScholarships = async () => {
-            try {
-                setLoading(true);
-                const response = await getScholarships();
-                setScholarships(response);
-                setError("");
-            } catch (err) {
-                console.error("Failed to load scholarships:", err);
-                setError("Unable to load scholarships right now.");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchScholarships();
-    }, []);
+    const [loading] = useState(false);
+    const [error] = useState("");
 
     const loweredSearch = searchTerm.trim().toLowerCase();
 
@@ -160,7 +60,7 @@ export default function Scholarship() {
     });
 
     const clearFilters = () => {
-        setFilters(initialFilters);
+        setFilters(initialScholarshipFilters);
         setSearchTerm("");
     };
 

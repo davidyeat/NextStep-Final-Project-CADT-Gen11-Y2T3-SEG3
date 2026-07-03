@@ -1,20 +1,9 @@
 import { Filter, X } from "lucide-react";
-
-const LEVEL_OPTIONS = ["Undergraduate", "Graduate", "Doctoral"];
-
-const SUPPORT_OPTIONS = [
-  "Full Scholarship (Tuition + Living Costs)",
-  "Partial Scholarship (Tuition Only)",
-  "Stipend",
-  "Research Funding",
-];
-
-const PROVIDER_OPTIONS = [
-  "Universities",
-  "Government",
-  "International",
-  "Private",
-];
+import {
+  LEVEL_OPTIONS,
+  PROVIDER_OPTIONS,
+  SUPPORT_OPTIONS,
+} from "../manual data/scholarshipData";
 
 export default function ScholarshipFilterPanel({
   showFilters,
@@ -40,7 +29,7 @@ export default function ScholarshipFilterPanel({
           Scholarship Filters
         </span>
         {hasActiveFilters && (
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-white">
             !
           </span>
         )}
