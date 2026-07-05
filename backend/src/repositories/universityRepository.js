@@ -1,5 +1,8 @@
-import sequelize from "../config/database.js";
 import University from "../models/university.js";
+import AcademicUnit from "../models/academicUnit.js";
+import Major from "../models/major.js";
+import Facility from "../models/facility.js";
+import Admission from "../models/admission.js";
 import { Op } from "sequelize";
 
 // Get all universities
@@ -9,7 +12,18 @@ export const getAllUniversities = async () => {
 
 // Get a university by ID
 export const getUniversityById = async (universityId) => {
-    return await University.findOne({where: {universityId: universityId}});
+    return await University.findByPk(universityId);
+}
+
+// Get university details
+export const getUniversityFullDetail = async(universityId) => {
+    return await University.findByPk(universityId, {
+        include: [
+            { model: Admission },
+            { model: Facility },
+            { model: AcademicUnit, include: [{ model: Major }]}
+        ]
+    });
 }
 
 // Create a new university
@@ -19,7 +33,11 @@ export const createUniversity = async (universitydata) => {
 
 // Update an existing university
 export const updateUniversity = async(universityId, universitydata) => {
-    return await University.update(universitydata, {where: {universityId}})
+    await University.update(universitydata, {
+        where: {universityId}
+    });
+
+    return await University.findByPk(universityId);
 }
 
 // Delete a university
@@ -27,40 +45,70 @@ export const deleteUniversity = async (universityId) => {
     return await University.destroy({where: {universityId}});
 }
 
-// Search universities
+// Search + Filter + Pagination
 export const searchUniversities = async (filters) => {
     const where = {};
 
-    // Search by campusName
-    if (filters.search && filters.search.trim() !== "") {
-        where.campusName = { [Op.like]: `%${filters.search}%` };
+    if (filters.search?.trim()) {
+        where[Op.or] = [
+            {
+                campusName: {
+                    [Op.like]: `%${filters.search}%`
+                }
+            },
+            {
+                shortName: {
+                    [Op.like]: `%${filters.search}%`
+                }
+            }
+        ];
     }
 
-    // Filter by type
-    if (filters.type && filters.type.trim() !== "") {
-        where.type = { [Op.eq]: filters.type };
+    if (filters.type?.trim()) {
+        where.type = filters.type;
     }
 
-    // Filter by province
-    if (filters.province && filters.province.trim() !== "") {
-        where.province = { [Op.eq]: filters.province };
+    if (filters.province?.trim()) {
+        where.province = filters.province;
     }
 
-    // Filter by city
-    if (filters.city && filters.city.trim() !== "") {
-        where.city = { [Op.eq]: filters.city };
+    if (filters.city?.trim()) {
+        where.city = filters.city;
     }
 
     // Filter by Fee Range
-    if (filters.minFee || filters.maxFee) {
+    const minFee = filters.minFee ? Number(filters.minFee) : null;
+    const maxFee = filters.maxFee ? Number(filters.maxFee) : null;
+
+    if (minFee !==null || maxFee !== null) {
         where.tuition_fee = {};
-        if (filters.minFee) {
-            where.tuition_fee[Op.gte] = filters.minFee;
+
+        if (minFee !== null) {
+            where.tuition_fee[Op.gte] = minFee;
         }
-        if (filters.maxFee) {
-            where.tuition_fee[Op.lte] = filters.maxFee;
+        if (maxFee !== null) {
+            where.tuition_fee[Op.lte] = maxFee;
         }
     }
 
-    return await University.findAll({ where });
-}
+    const page = Number(filters.page) || 1;
+    const limit = Number(filters.limit) || 10;
+    const offset = (page - 1) * limit;
+
+    const { rows, count } = await University.findAndCountAll({
+        where,
+        limit,
+        offset,
+        order: [["campusName", "ASC"]]
+    });
+
+    return {
+        universities: rows,
+        pagination: {
+            total: count,
+            page,
+            limit,
+            totalPages: Math.ceil(count / limit)
+        }
+    }
+};

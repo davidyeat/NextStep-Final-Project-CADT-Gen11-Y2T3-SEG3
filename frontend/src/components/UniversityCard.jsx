@@ -77,7 +77,7 @@ export default function UniversityCard({ university }) {
 
             <div className="flex items-center gap-3 pt-2">
                 <Link
-                    to={`/university-details/${university.universityId}`}
+                    to={`/universities/${university.universityId}/full`}
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#0D1220] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1b2235]"
                 >
                     View Details

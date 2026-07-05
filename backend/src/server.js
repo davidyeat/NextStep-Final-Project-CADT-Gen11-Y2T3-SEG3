@@ -11,6 +11,8 @@ import universityRoutes from "./routes/universityRoutes.js";
 import scholarshipRoutes from "./routes/scholarshipRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import academicUnitRoutes from "./routes/academicUnitRoutes.js";
+import majorRoutes from "./routes/majorRoutes.js";
 
 import { serveSwagger, setupSwagger } from './config/swagger.js';
 import { register } from "./controllers/authController.js";
@@ -52,6 +54,8 @@ app.use("/api/universities", universityRoutes);
 app.use("/api/scholarships", scholarshipRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/academic-units", academicUnitRoutes);
+app.use("/api/majors", majorRoutes);
 
 // Error handling middleware
 app.use(errorHandler);
@@ -61,7 +65,10 @@ const PORT = ENV.PORT || 4000;
 
 async function startServer() {
   try {
-    await sequelize.sync({alter: true});
+    await sequelize.authenticate();
+    console.log('✅ Connection has been established successfully.');
+
+    await sequelize.sync({ force: false });
     console.log("✅ Database models synchronized successfully.");
 
     app.listen(PORT, () => {

@@ -8,6 +8,7 @@ import UniversityProgram from "../sections/UniversityProgram";
 import UniversityAdmission from "../sections/UniversityAdmission";
 import UniversityCosts from "../sections/UniversityCosts";
 import UniversityScholarships from "../sections/UniversityScholarships";
+import asParagraphs from "../utils/convertToParagraphs";
 
 const detailTabs = [
   { label: "Overview", value: "overview" },
@@ -40,6 +41,8 @@ export default function UniversityDetail() {
 
     fetchUniversity();
   }, [universityId]);
+
+  
 
   useEffect(() => {
     if (!university) {

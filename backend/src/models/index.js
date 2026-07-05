@@ -7,7 +7,7 @@ import Provider from "./provider.js";
 import University from "./university.js";
 import Facility from "./facility.js";
 import Admission from "./admission.js";
-import Department from "./department.js";
+import AcademicUnit from "./academicUnit.js";
 import Major from "./major.js";
 import Scholarship from "./scholarship.js";
 import FundingType from "./fundingType.js";
@@ -29,12 +29,12 @@ University.hasMany(Admission, {foreignKey: 'universityId'});
 Admission.belongsTo(University, {foreignKey: 'universityId'});
 
 // University & Department (One-to-Many)
-University.hasMany(Department, {foreignKey: 'universityId'});
-Department.belongsTo(University, {foreignKey: 'universityId'});
+University.hasMany(AcademicUnit, {foreignKey: 'universityId'});
+AcademicUnit.belongsTo(University, {foreignKey: 'universityId'});
 
 // Department & Major (One-to-Many)
-Department.hasMany(Major, {foreignKey: 'departmentId'});
-Major.belongsTo(Department, {foreignKey: 'departmentId'});
+AcademicUnit.hasMany(Major, {foreignKey: 'academicUnitId'});
+Major.belongsTo(AcademicUnit, {foreignKey: 'academicUnitId'});
 
 // FundingType & Scholarship (One-to-Many)
 FundingType.hasMany(Scholarship, {foreignKey: 'fundingId'});
@@ -63,6 +63,6 @@ Major.belongsToMany(Scholarship, {through: 'Scholarship_Major', foreignKey: 'maj
 
 export {
     User, Role, Profile, University,Facility,
-    Admission, Department, Major,
+    Admission, AcademicUnit, Major,
     Scholarship, FundingType, Provider
 };

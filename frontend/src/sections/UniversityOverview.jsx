@@ -1,46 +1,28 @@
 import asParagraphs from '../utils/convertToParagraphs';
-import UniversityDetailSection from '../components/university-details/UniversityDetailSection';
-import MissionVisionCard from '../components/university-details/MissionVisionCard';
-
-const renderList = (items, emptyMessage) => {
-    if (!items.length) {
-        return <p className="mt-3 text-sm leading-7 text-gray-500">{emptyMessage}</p>;
-    }
-
-    return (
-        <ul className="mt-3 space-y-3 pl-5 text-sm leading-7 text-gray-600 list-disc">
-            {items.map((item) => (
-                <li key={item}>{item}</li>
-            ))}
-        </ul>
-    );
-};
+import MissionVision from '../components/university-details/MissionVision';
 
 export default function UniversityOverview({ university }) {
-    const missionItems = asParagraphs(university.mission);
-    const visionItems = asParagraphs(university.vision);
-    const description = asParagraphs(university.description).join(' ');
-
     return (
-        <section className="mx-auto max-w-7xl space-y-10 px-6 pb-10 lg:px-10">
-            <div className="space-y-6">
-                <UniversityDetailSection
-                    eyebrow="Overview"
-                    title={`About ${university.campusName}`}
-                    description={description || undefined}
-                >
-                </UniversityDetailSection>
-
-                <div className="flex gap-2 lg:grid-cols-2">
-                    <MissionVisionCard
-                        icon={UniversityDetailSection}
+        <section className="mx-auto max-w-7xl lg:px-10 bg-white md:p4 sm:p-2 rounded-lg shadow:md mb-4 scroll-mt-8 pb-6">
+            <div className="p-2 md:p-3 lg:p-6 bg-white rounded">
+                <h1 className="text-lg md:text-2xl lg:text-4xl font-serif font-black text-gray-900 mb-2">
+                    Overview
+                </h1>
+                <div className="border-b-2 border-blue-600 w-16 mb-6"></div>
+                <div className="max-w-screen">
+                    <h1 className="text-2xl font-serif font-black text-gray-900">
+                        About {university.campusName}
+                    </h1>
+                    <p className="space-y-1.5 text-[16px] leading-7 text-gray-900 mt-4">
+                        {university.description}
+                    </p>
+                    <MissionVision 
                         title="Mission"
-                        items={missionItems}
+                        items={asParagraphs(university.mission)}
                     />
-                    <MissionVisionCard
-                        icon={UniversityDetailSection}
+                    <MissionVision 
                         title="Vision"
-                        items={visionItems}
+                        items={asParagraphs(university.vision)}
                     />
                 </div>
             </div>

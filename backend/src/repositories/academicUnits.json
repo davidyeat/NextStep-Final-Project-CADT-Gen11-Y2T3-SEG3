@@ -1,0 +1,44 @@
+[
+    {
+        "universityId": 2,
+        "name": "Institute of Foreign Languages",
+        "type": "Institute",
+        "description": "The Institute of Foreign Languages IFL is a prominent educational institution under the Royal University of Phnom Penh (RUPP), dedicated to providing comprehensive language education. Established as part of RUPP, IFL plays a crucial role in enhancing language skills among students in Cambodia."
+    }, 
+    {
+        "universityId": 2,
+        "name": "Faculty of Science",
+        "type": "Faculty",
+        "description": "The Faculty of Science is dedicated to high-quality teaching, pioneering research, and community service. Its primary goal is to produce graduates with the theoretical knowledge and practical technical skills necessary to support Cambodia’s goal of becoming an upper-middle-income country by 2030."
+    },
+    {
+        "universityId": 2,
+        "name": "Faculty of Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Engineering is dedicated to pursuing excellence in teaching, research, and community engagement in Engineering Education to address the challenges of ever-changing society and globalization."
+    },
+    {
+        "universityId": 2,
+        "name": "Institute For International Studies and Public Policy",
+        "type": "Institute",
+        "description": "The central goal of IISPP is to produce well-rounded and skillful graduates who possess the in-depth knowledge and critical analytical, research, and transferable skills necessary to successfully contribute to careers in international affairs, economics, and public policy, thus supporting the country's strong, robust system and socio-economic development."
+    },
+    {
+        "universityId": 2,
+        "name": "Faculty of Development Studies",
+        "type": "Faculty",
+        "description": "The Faculty of Development Studies is dedicated to providing high-quality education and research in the field of development studies, preparing students to address the complex challenges of sustainable development in Cambodia and beyond."
+    },
+    {
+        "universityId": 2,
+        "name":"Faculty of Education",
+        "type": "Faculty",
+        "description": "The Faculty of Education is committed to training future educators and researchers, equipping them with the knowledge, skills, and ethical foundations necessary to contribute effectively to the educational development of Cambodia."
+    },
+    {
+        "universityId": 2,
+        "name": "Faculty of Social Sciences and Humanities",
+        "type": "Faculty",
+        "description": "The Faculty of Social Sciences and Humanities is dedicated to providing high-quality education and research in the fields of social sciences and humanities, preparing students to address the complex challenges of modern society."
+    }
+]
