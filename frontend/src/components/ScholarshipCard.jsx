@@ -1,4 +1,5 @@
 import { CalendarDays, CircleDollarSign, ExternalLink, GraduationCap, MapPin, Tag } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const formatAmount = (amount, currency) => {
   if (amount == null || amount === "") {
@@ -93,25 +94,28 @@ export default function ScholarshipCard({ scholarship }) {
           </p>
         )}
 
-        {scholarship.applicationLink ? (
-          <a
-            href={scholarship.applicationLink}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#769ff2] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1b2235]"
+        <div className="flex items-center gap-4 pt-1 text-sm font-medium">
+          <Link
+            to={`/scholarships/${scholarship.scholarshipId}`}
+            className="text-[#0EA5C6] underline-offset-2 transition-colors hover:text-[#0284C7] hover:underline"
           >
-            Apply Now
-            <ExternalLink className="h-4 w-4" />
-          </a>
-        ) : (
-          <button
-            type="button"
-            disabled
-            className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-[#E7E5E4] px-4 py-3 text-sm font-medium text-gray-500"
-          >
-            Application link unavailable
-          </button>
-        )}
+            Detail
+          </Link>
+
+          {scholarship.applicationLink ? (
+            <a
+              href={scholarship.applicationLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-[#1D4ED8] underline-offset-2 transition-colors hover:text-[#1E3A8A] hover:underline"
+            >
+              Apply
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          ) : (
+            <span className="text-gray-400">Apply</span>
+          )}
+        </div>
       </div>
     </article>
   );
