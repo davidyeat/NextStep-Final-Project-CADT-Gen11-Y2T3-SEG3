@@ -1,5 +1,10 @@
 [
     {
+        "universityId": 1,
+        "name": ,
+        "type": 
+    },
+    {
         "universityId": 2,
         "name": "Institute of Foreign Languages",
         "type": "Institute",
