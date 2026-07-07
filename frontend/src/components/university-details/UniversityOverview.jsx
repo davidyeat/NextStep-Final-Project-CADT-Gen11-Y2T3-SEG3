@@ -1,5 +1,5 @@
-import asParagraphs from '../utils/convertToParagraphs';
-import MissionVision from '../components/university-details/MissionVision';
+import asParagraphs from '../../utils/convertToParagraphs';
+import MissionVision from './MissionVision';
 
 export default function UniversityOverview({ university }) {
     return (

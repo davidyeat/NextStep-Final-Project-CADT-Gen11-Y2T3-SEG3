@@ -3,6 +3,7 @@ import AcademicUnit from "../models/academicUnit.js";
 import Major from "../models/major.js";
 import Facility from "../models/facility.js";
 import Admission from "../models/admission.js";
+import Scholarship from "../models/scholarship.js";
 import { Op } from "sequelize";
 
 // Get all universities
@@ -21,6 +22,7 @@ export const getUniversityFullDetail = async(universityId) => {
         include: [
             { model: Admission },
             { model: Facility },
+            { model: Scholarship },
             { model: AcademicUnit, include: [{ model: Major }]}
         ]
     });

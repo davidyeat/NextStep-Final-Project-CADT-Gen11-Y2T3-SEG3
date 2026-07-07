@@ -1,4 +1,4 @@
-import AcademicProgramCard from '../components/AcademicProgramCard';
+import AcademicProgramCard from '../../components/AcademicProgramCard';
 
 export default function UniversityProgram({ university }) {
 	const academicPrograms = university.AcademicUnits;

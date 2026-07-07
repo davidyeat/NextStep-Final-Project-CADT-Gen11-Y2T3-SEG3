@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Heart } from "lucide-react";
-// import { useSavedUniversities } from '../hooks/useSavedUniversities';
 
 export default function UniversityDetailsHero({ university }) {
-  // const { isUniversitySaved, toggleUniversity } = useSavedUniversities();
-
   return (
     <div className="relative w-full overflow-hidden">
       <div className="relative h-112 w-full bg-linear-to-br from-[#0F172A] via-[#111827] to-[#1F2937]">
@@ -41,17 +38,9 @@ export default function UniversityDetailsHero({ university }) {
             </div>
 
             <button
-              // onClick={() => toggleUniversity(university.id)}
               className="shrink-0 rounded-full bg-white/85 p-3 text-gray-600 shadow-lg shadow-black/20 backdrop-blur-sm transition-transform hover:scale-105 hover:bg-white"
             >
-              <Heart
-                className="h-5 w-5"
-                // className={`h-5 w-5 ${
-                //     isUniversitySaved(university.id)
-                //         ? 'fill-[#00D4FF] text-[#00D4FF]'
-                //         : 'text-[#F0F4F8]'
-                // }`}
-              />
+              <Heart className="h-5 w-5" />
             </button>
           </div>
         </div>
