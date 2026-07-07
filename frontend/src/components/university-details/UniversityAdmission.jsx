@@ -1,6 +1,7 @@
 import { CheckCircle2, ClipboardList, Mail, Phone } from 'lucide-react';
-import UniversityDetailSection from '../components/university-details/UniversityDetailSection';
-import { asBulletList, getAssociationList } from '../utils/universityDetails';
+import UniversityDetailSection from './UniversityDetailSection';
+import UniversityDetailSplitLayout from './UniversityDetailSplitLayout';
+import { asBulletList, getAssociationList } from '../../utils/universityDetails';
 
 const AdmissionCard = ({ admission }) => {
 	const requirements = asBulletList(admission.requirements);
@@ -44,8 +45,44 @@ export default function UniversityAdmission({ university }) {
 	];
 
 	return (
-		<section className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_360px]">
-			<div className="space-y-6">
+		<UniversityDetailSplitLayout
+			aside={
+				<>
+					<UniversityDetailSection title="Application checklist" className="p-5">
+						<div className="space-y-3">
+							{fallbackChecklist.map((item) => (
+								<div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-600">
+									<CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0EA5C6]" />
+									<span>{item}</span>
+								</div>
+							))}
+						</div>
+					</UniversityDetailSection>
+
+					<UniversityDetailSection
+						eyebrow="Need help"
+						title="Contact the admissions office"
+						description="Use the university contact details below to confirm deadlines, document requirements, and interview steps."
+						className="p-5"
+					>
+						<div className="space-y-3 text-sm text-gray-600">
+							{university.phoneNumber && (
+								<div className="flex items-center gap-3">
+									<Phone className="h-4 w-4 text-[#8899AA]" />
+									<span>{university.phoneNumber}</span>
+								</div>
+							)}
+							{university.email && (
+								<div className="flex items-center gap-3">
+									<Mail className="h-4 w-4 text-[#8899AA]" />
+									<span>{university.email}</span>
+								</div>
+							)}
+						</div>
+					</UniversityDetailSection>
+				</>
+			}
+		>
 				<UniversityDetailSection
 					eyebrow="Admissions"
 					title="How to apply"
@@ -70,42 +107,6 @@ export default function UniversityAdmission({ university }) {
 						</div>
 					)}
 				</UniversityDetailSection>
-			</div>
-
-			<aside className="space-y-6">
-				<UniversityDetailSection title="Application checklist" className="p-5">
-					<div className="space-y-3">
-						{fallbackChecklist.map((item) => (
-							<div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-600">
-								<CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0EA5C6]" />
-								<span>{item}</span>
-							</div>
-						))}
-					</div>
-				</UniversityDetailSection>
-
-				<UniversityDetailSection
-					eyebrow="Need help"
-					title="Contact the admissions office"
-					description="Use the university contact details below to confirm deadlines, document requirements, and interview steps."
-					className="p-5"
-				>
-					<div className="space-y-3 text-sm text-gray-600">
-						{university.phoneNumber && (
-							<div className="flex items-center gap-3">
-								<Phone className="h-4 w-4 text-[#8899AA]" />
-								<span>{university.phoneNumber}</span>
-							</div>
-						)}
-						{university.email && (
-							<div className="flex items-center gap-3">
-								<Mail className="h-4 w-4 text-[#8899AA]" />
-								<span>{university.email}</span>
-							</div>
-						)}
-					</div>
-				</UniversityDetailSection>
-			</aside>
-		</section>
+		</UniversityDetailSplitLayout>
 	);
 }

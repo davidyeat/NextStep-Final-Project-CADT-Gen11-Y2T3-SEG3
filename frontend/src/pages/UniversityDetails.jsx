@@ -1,42 +1,92 @@
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import AsideDetail from "../components/AsideDetails";
-import UniversityDetailsHero from "../sections/UniversityDetailsHero";
+import UniversityDetailSidebar from "../components/university-details/UniversityDetailSidebar";
+import UniversityDetailsHero from "../components/university-details/UniversityDetailsHero";
+import UniversityOverview from "../components/university-details/UniversityOverview";
+import UniversityProgram from "../components/university-details/UniversityProgram";
+import UniversityAdmission from "../components/university-details/UniversityAdmission";
+import UniversityScholarships from "../components/university-details/UniversityScholarships";
+import UniversityFacilities from "../components/university-details/UniversityFacilities";
+import UniversityCampusLife from "../components/university-details/UniversityCampusLife";
+import UniversityLocation from "../components/university-details/UniversityLocation";
+import UniversityContact from "../components/university-details/UniversityContact";
 import { getUniversityFullDetail } from "../services/universityService";
-import UniversityOverview from "../sections/UniversityOverview";
-import UniversityProgram from "../sections/UniversityProgram";
 
-const asideTabs = [
-    {label: "Overview", value: "overview"},
-    {label: "Program", value: "program"},
-    {label: "Admission", value: "admissions"},
-    {label: "Scholarships", value: "scholarships"},
-    {label: "Facilities", value: "facilities"},
-    {label: "Campus Life", value: "campus_life"},
-    {label: "Location", value: "location"},
-    {label: "Contact", value: "contact"}
+const detailTabs = [
+    { label: "Overview", value: "overview" },
+    { label: "Program", value: "program" },
+    { label: "Admission", value: "admission" },
+    { label: "Scholarships", value: "scholarships" },
+    { label: "Facilities", value: "facilities" },
+    { label: "Campus Life", value: "campus-life" },
+    { label: "Location", value: "location" },
+    { label: "Contact", value: "contact" },
 ];
 
 export default function UniversityDetails() {
     const { universityId } = useParams();
     const [university, setUniversity] = useState(null);
+    const [activeTab, setActiveTab] = useState("overview");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const fetchUniversity = async() => {
+        const fetchUniversity = async () => {
             try {
+                setLoading(true);
                 const universityData = await getUniversityFullDetail(universityId);
                 setUniversity(universityData);
             } catch (error) {
-                setError("Unable to fetched university", error);
+                setError("Unable to load university details right now.");
             } finally {
                 setLoading(false);
             }
-        }
+        };
 
         fetchUniversity();
     }, [universityId]);
+
+    useEffect(() => {
+        if (!university) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleSections = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+                if (visibleSections.length > 0) {
+                    setActiveTab(visibleSections[0].target.id);
+                }
+            },
+            {
+                rootMargin: "-25% 0px -55% 0px",
+                threshold: [0.1, 0.25, 0.5],
+            },
+        );
+
+        detailTabs.forEach(({ value }) => {
+            const element = document.getElementById(value);
+
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => observer.disconnect();
+    }, [university]);
+
+    const handleTabChange = (sectionId) => {
+        setActiveTab(sectionId);
+
+        const element = document.getElementById(sectionId);
+
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     
     // Loading...
@@ -87,17 +137,53 @@ export default function UniversityDetails() {
     }
 
     return (
-        <div className="min-h-screen bg-[#FAFAF9]">
-            <UniversityDetailsHero university={university}/>
-            <div className="mx-auto max-w-7xl space-y-10 px-6 pb-10 lg:px-10 mt-6 ">
-                <div className="flex flex-col lg:flex-row gap-8">
-                    <AsideDetail title={university.campusName}/>
-                    <main id="main-content" className="w-full lg:w-5/6 flex-1 min-h-screen scroll-smooth">
-                        <UniversityOverview university={university}/>
-                        <UniversityProgram university={university}/>
-                    </main>
+        <main className="min-h-screen bg-[#FAFAF9] text-gray-900">
+            <UniversityDetailsHero university={university} />
+
+            <div className="mx-auto max-w-7xl px-6 pb-10 pt-6 lg:px-10">
+                <div className="flex flex-col gap-8 lg:flex-row">
+                    <UniversityDetailSidebar
+                        title={university.campusName}
+                        tabs={detailTabs}
+                        activeTab={activeTab}
+                        onTabChange={handleTabChange}
+                    />
+
+                    <div id="main-content" className="w-full flex-1 space-y-10 scroll-smooth">
+                        <div id="overview" className="scroll-mt-32">
+                            <UniversityOverview university={university} />
+                        </div>
+
+                        <div id="program" className="scroll-mt-32">
+                            <UniversityProgram university={university} />
+                        </div>
+
+                        <div id="admission" className="scroll-mt-32">
+                            <UniversityAdmission university={university} />
+                        </div>
+
+                        <div id="scholarships" className="scroll-mt-32">
+                            <UniversityScholarships university={university} />
+                        </div>
+
+                        <div id="facilities" className="scroll-mt-32">
+                            <UniversityFacilities university={university} />
+                        </div>
+
+                        <div id="campus-life" className="scroll-mt-32">
+                            <UniversityCampusLife university={university} />
+                        </div>
+
+                        <div id="location" className="scroll-mt-32">
+                            <UniversityLocation university={university} />
+                        </div>
+
+                        <div id="contact" className="scroll-mt-32">
+                            <UniversityContact university={university} />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     );
 }
