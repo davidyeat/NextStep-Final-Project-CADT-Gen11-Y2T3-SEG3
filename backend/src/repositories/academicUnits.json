@@ -1,9 +1,5 @@
 [
-    {
-        "universityId": 1,
-        "name": ,
-        "type": 
-    },
+    // Royal University of Phnom Penh (RUPP)
     {
         "universityId": 2,
         "name": "Institute of Foreign Languages",
@@ -45,5 +41,147 @@
         "name": "Faculty of Social Sciences and Humanities",
         "type": "Faculty",
         "description": "The Faculty of Social Sciences and Humanities is dedicated to providing high-quality education and research in the fields of social sciences and humanities, preparing students to address the complex challenges of modern society."
+    },
+
+    // Institute of Technology of Cambodia (ITC)
+    {
+        "universityId": 3,
+        "name": "Faculty of Electrical Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Electrical Engineering prepares students to design, develop, and maintain modern electrical and electronic systems. It offers programs in electrical and energy engineering, industrial and mechanical engineering, information and communication engineering, and telecommunications, combining theoretical knowledge with practical laboratory experience."
+    },
+    {
+        "universityId": 3,
+        "name": "Faculty of Civil Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Civil Engineering focuses on designing and constructing sustainable infrastructure. Students gain expertise in structural engineering, transportation systems, and architectural engineering through project-based learning and practical engineering applications."
+    },
+    {
+        "universityId": 3,
+        "name": "Faculty of Chemical and Food Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Chemical and Food Engineering equips students with expertise in chemical processes, food production, quality assurance, and industrial manufacturing. The curriculum emphasizes sustainability, innovation, and industry-oriented research."
+    },
+    {
+        "universityId": 3,
+        "name": "Faculty of Hydrology and Water Resources Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Hydrology and Water Resources Engineering prepares students to manage water resources, environmental systems, irrigation, flood control, and sustainable infrastructure through engineering principles and applied research."
+    },
+    {
+        "universityId": 3,
+        "name": "Faculty of Geo-resources and Geotechnical Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Geo-resources and Geotechnical Engineering focuses on geology, geotechnical engineering, soil mechanics, foundation engineering, and the sustainable development of natural resources for modern infrastructure."
+    },
+
+    // Cambodia Academic of Digital Technology (CADT)
+    {
+        "universityId": 1,
+        "name": "Faculty of Computer Science",
+        "type": "Faculty",
+        "description": "The Faculty of Computer Science emphasizes practical skills built on theoretical foundations. Every course is designed to give students hands-on practices with up-to-date tools and frameworks"
+    },
+    {
+        "universityId": 1,
+        "name": "Faculty of Telecommunication and Network Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Telecommunication and Network Engineering is designed to provide students with a firmly-grounded, practical, and multidisciplinary training with effective learning resources."
+    },
+    {
+        "universityId": 1,
+        "name": "Faculty of Digital Business",
+        "type": "Faculty",
+        "description": "The Faculty of Digital Business is designed to prepare students for the contemporary workforce and a global career especially for the emerging market."
+    },
+
+    // National University of Management (NUM)
+    {
+        "universityId": 4,
+        "name": "Faculty of Management",
+        "type": "Faculty",
+        "description": "The Faculty of Management is dedicated to cultivating skilled professionals in management, marketing, and entrepreneurship. It aims to equip students with the knowledge and practical skills necessary to excel in the dynamic industry environment of Cambodia and beyond."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Finance and Accounting",
+        "type": "Faculty",
+        "description": "The Faculty of Finance and Accounting is designed to equip students with strong theoretical knowledge and practical skills in financial reporting, auditing, taxation, and management accounting."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Information Technology",
+        "type": "Faculty",
+        "description": "The Faculty of Information Technology prepares students to become innovative problem-solvers and technology leaders in the digital era."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Economics",
+        "type": "Faculty",
+        "description": "The Faculty of Economics aims to produce graduates that are equipped with sound knowledge and understanding of broad social, political, business and economic phenomena, with the analytical tools to perform work and apply with business efficiently and effectively."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Foreign Languages",
+        "type": "Faculty",
+        "description": "The Faculty of Foreign Languages is designed to equip students with English proficiency for professional communication and English teaching skills."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Tourism and Hospitality",
+        "type": "Faculty",
+        "description": "The Faculty of Tourism and Hospitality Management is focused on tourism management, hospitality services, and customer experience to prepare professionals for the growing tourism industry."
+    },
+    {
+        "universityId": 4,
+        "name": "Faculty of Law",
+        "type": "Faculty",
+        "description": "The Faculty of Law is dedicated to excellence in legal education, research and innovation- cultivating the next generation of leaders in law and justice with a profound understanding of Cambodian and international law."
+    },
+
+    // Zaman University (Paragon International University)
+    {
+        "universityId": 5,
+        "name": "Faculty of Engineering",
+        "type": "Faculty",
+        "description": "The Faculty of Engineering strives to prepare its students with the highest quality education and research who will endure the challenges of the industry and the society competently."
+    },
+    {
+        "universityId": 5,
+        "name": "Faculty of Information and Computer Technologyies",
+        "type": "Faculty",
+        "description": "The Faculty of Information and Computer Technology is committed to providing students with a comprehensive understanding of computer science, information systems, and emerging technologies, preparing them for successful careers in the digital age."
+    },
+    {
+        "universityId": 5,
+        "name": "Faculty of Economics and Administrative Sciences",
+        "type": "Faculty",
+        "description": "The Faculty is dedicated to offering students with majors tailored to modern corporate and diplomatic needs, including Banking and Finance, Business Administration, International Trade and Logistics, Economics, and International Relations."
+    },
+
+    // American University of Phnom Penh
+    {
+        "universityId": 6,
+        "name": "Faculty of Business and Management",
+        "type": "Faculty",
+        "description": "This faculty is designed for students aiming to enter the global corporate world, start their own ventures, or enter marketing. It focuses heavily on hands-on experiences and modern market trends."
+    },
+    {
+        "universityId": 6,
+        "name": "Faculty of Digital Technologies",
+        "type": "Faculty",
+        "description": "The Faculty is dedicated to Digital Infrastructure, Software Development, Cybersecurity, Data Science, and AI. Our specialized programs equip students with practical expertise and in-depth knowledge in these critical tech domains."
+    },
+    {
+        "universityId": 6,
+        "name": "Faculty of Law",
+        "type": "Faculty",
+        "description": "The Faculty of Law designed to help students develop legal analysis, critical thinking, and problem-solving skills that will equip them for careers not only in the legal profession, but also in business, government, and other professions."
+    },
+    {
+        "universityId": 6,
+        "name": "Faculty of Social Sciences",
+        "type": "Faculty",
+        "description": "The Faulty houses the GE program enables students in all majors to experience interdisciplinary American style education by exposing them to a variety of subjects, and enabling them in their first years of study to acquire the necessary academic skills to succeed in their respective programs."
     }
 ]

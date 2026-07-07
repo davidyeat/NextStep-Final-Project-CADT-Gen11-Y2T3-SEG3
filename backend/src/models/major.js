@@ -39,11 +39,11 @@ const Major = sequelize.define("Major", {
     },
 
     learningOutcomes: {
-        type: DataTypes.TEXT
+        type: DataTypes.JSON
     },
 
     futureCareerProspects: {
-        type: DataTypes.TEXT
+        type: DataTypes.JSON
     }
 }, {
     timestamps: true

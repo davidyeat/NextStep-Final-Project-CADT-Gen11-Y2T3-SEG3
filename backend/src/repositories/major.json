@@ -1,12 +1,116 @@
 [
+    // Royal University of Phnom Penh (RUPP)
     {
         "academicUnitId": 1,
         "name": "Department of Chinese",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 1000,
-        "description":
+        "tuitionFee": 600.00,
+        "description": "Chinese language and culture"
     },
     {
+        "academicUnitId": 1,
+        "name": "Department of English",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600.00,
+        "description": "English language and literature"
+    },
+    {
+        "academicUnitId": 1,
+        "name": "Department of French",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600.00,
+        "description": "French language and culture"
+    },
+    {
+        "academicUnitId": 1,
+        "name": "Department of Japanese",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600.00,
+        "description": "Japanese language and culture"
+    },
+    {
+        "academicUnitId": 1,
+        "name": "Department of Korean",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600.00,
+        "description": "Korean language and culture"
+    },
+    {
+        "academicUnitId": 1,
+        "name": "Department of Thai",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600.00,
+        "description": "Thai language and culture"
+    },
 
+    // Cambodia Academy of Digital Technology (CADT)
+    {
+        "academicUnitId": 13,
+        "name": "Software Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 2500.00,
+        "description": "Aim to provide a skillfull Bachelor of Computer Science specialized in Software Engineering. Students will also develop the skills necessary to solve complex technical problems and contribute to the community and society.",
+        "learningOutcomes": [
+            "Develop a website or web application",
+            "Develop mobile application",
+            "Analysis and design database",
+            "Understand the social and ethical implications of working as a professional in the field of computer science",
+            "Critically analyze a problem and design, implement, and evaluate a computer solution that meets the requirements",
+            "Work effectively in small groups on medium-scale computing projects"
+        ],
+        "futureCareerProspects": [
+            "Software Developer",
+            "Database Designer and Administrator",
+            "Mobile Application Developer",
+            "IT Consultant",
+            "Digital Technology Entrepreneur",
+            "UX/UI Designer",
+            "Web Developer",
+            "Project Coordinator",
+            "Quality Assurance Analyst"
+        ]
+    },
+    {
+        "academicUnitId": 13,
+        "name": "Data Science",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 2500.00,
+        "description": "Aim to provide a skillfull Bachelor degree of Computer Science specialized in Data Science. Students will work in various settings, including research organizations, businesses, or government agencies.",
+        "learningOutcomes": [
+            "Explain and use appropriate and relavant, fundamental and applied mathematical and statistical knowledge, methodologies and modern computational tools",
+            "Analyze and manage large amounts of data arising from various sources",
+            "Evaluate and comapre solutions to data analysis problems on the basis of organizational and user requirements",
+            "Design and implement data analytic techniques that accommodate specified requirements and constraints, based on analysis or modeling or requirements specification",
+            "Be able to solve the real business problems to make the right decision."
+        ],
+        "futureCareerProspects": [
+            "Data Administrator",
+            "Business Intelligence Developer",
+            "Business Analyst - Data Analyst",
+            "Machine Learning Engineer",
+            "Data Modeling Specialist",
+            "Data Science Researcher"
+        ]
+    },
+    {
+        "academicUnitId": 14,
+        "name": "Telecommunications and Networking Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 2500.00,
+        "description": "Offers a cutting-edge program in Telecommunications and Network Engineering. Students will learn to design and optimize networks, equipping them for the ever-evolving world of technology.",
+        "learningOutcomes": [
+            "Design and implement telecommunications systems and networks",
+            "Interpret mathematical problems in the Telecommunication Technologies and Service Engineering area",
+            "Classify telecommunication standards and regulations in Cambodia",
+            "Apply programming languages into simulated and remote network systems, distributed services, and applications",
+            "Design computer network and transmission systems"
+        ],
+        "futureCareerProspects": [
+            "Core Network Engineer",
+            "Cloud Infrastructure and System Administrator",
+            "Design computer network and transmission systems",
+            "Service and Support Center",
+            "Quality of Service Analyst"
+        ]
     }
 ]
