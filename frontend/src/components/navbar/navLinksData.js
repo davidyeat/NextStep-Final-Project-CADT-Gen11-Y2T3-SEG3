@@ -12,8 +12,8 @@ const navItems = [
         path: "/scholarships"
     },
     {
-        name: "Majors",
-        path: "/majors"
+        name: "Recommendation",
+        path: "/recommendations"
     },
     {
         name: "About us",
