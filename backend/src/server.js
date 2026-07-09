@@ -14,6 +14,7 @@ import userRoutes from "./routes/userRoutes.js";
 import academicUnitRoutes from "./routes/academicUnitRoutes.js";
 import majorRoutes from "./routes/majorRoutes.js";
 import admissionRoutes from "./routes/admissionRoutes.js";
+import recommendationRoutes from "./routes/recommendationRoutes.js";
 
 import { serveSwagger, setupSwagger } from './config/swagger.js';
 import { register } from "./controllers/authController.js";
@@ -58,6 +59,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/academic-units", academicUnitRoutes);
 app.use("/api/majors", majorRoutes);
 app.use("/api/admissions", admissionRoutes);
+app.use("/api/recommendations", recommendationRoutes);
 
 // Error handling middleware
 app.use(errorHandler);

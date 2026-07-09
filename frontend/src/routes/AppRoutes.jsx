@@ -10,6 +10,8 @@ import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
 import UniversityDetails from "../pages/UniversityDetails";
 import ScholarshipDetail from "../pages/ScholarshipDetail";
+import Recommendation from "../pages/Recommendation";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function AppRoutes() {
     return (
@@ -22,6 +24,7 @@ export default function AppRoutes() {
                     <Route path="/scholarships" element={<Scholarship />} />
                     <Route path="/scholarships/:scholarshipId" element={<ScholarshipDetail />} />
                     <Route path="/majors" element={<Major />} />
+                    <Route path="/recommendations" element={<ProtectedRoute><Recommendation /></ProtectedRoute>} />
                     <Route path="/about-us" element={<About />} />
                 </Route>
 
