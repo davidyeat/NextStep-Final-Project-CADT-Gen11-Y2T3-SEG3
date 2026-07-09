@@ -1,10 +1,18 @@
 import sequelize from "../config/database.js";
+import FundingType from "../models/fundingType.js";
+import Provider from "../models/provider.js";
 import Scholarship from "../models/scholarship.js";
 import { Op } from "sequelize";
 
 // Get all scholarships
 export const getAllScholarships = async() => {
-    return await Scholarship.findAll();
+    return await Scholarship.findAll({
+        attributes: ["scholarshipId", "title", "studyIn", "degreeLevel", "applicationDeadline", "coverImage"],
+        include: [
+            { model: FundingType, attributes: ["fundingId", "name"] },
+            { model: Provider, attributes: ["providerId", "providerName", "providerLogo"] }
+        ]
+    });
 };
 
 // Get a scholarship by ID
@@ -15,6 +23,16 @@ export const getScholarshipById = async(scholarshipId) => {
 // Create a new Scholarship
 export const createScholarship = async(scholarshipData) => {
     return await Scholarship.create(scholarshipData);
+};
+
+// Get scholarship details
+export const getScholarshipFullDetail = async(scholarshipId) => {
+    return await Scholarship.findByPk(scholarshipId, {
+        include: [
+            { model: FundingType, attributes: ["fundingId", "name"] },
+            { model: Provider, attributes: [ "providerId", "providerName", "providerLogo", "providerType"] }
+        ]
+    });
 };
 
 // Update a scholarship
@@ -96,7 +114,7 @@ export const searchScholarships = async(filters) => {
     });
 
     return {
-        shcolarships: rows,
+        scholarships: rows,
         pagination: {
             total: count,
             page,

@@ -1,0 +1,58 @@
+[
+    {
+        "fundingId": 1,
+        "providerId": 1,
+        "title": "Techo Digital Talent Scholarships",
+        "studyIn": "Cambodia",
+        "description": "Techo Digital Talent Scholarship Program has been established with the goal of strengthening Cambodia’s pool of skilled digital human resources. This will form the foundation of the nation’s digital workforce, supporting the transformation of Cambodia’s economy into a digital economy.",
+        "degreeLevel": "Bachelor",
+        "minAmount": 3100.00,
+        "maxAmount": 24700.00,
+        "currency": "USD",
+        "availableSlots": 600,
+        "benefits": [
+            "One laptop",
+            "100% tuition coverage until completion of the bachelor’s degree",
+            "Opportunities for high-paying jobs in ministries, institutions, or technology companies both locally and abroad",
+            "Support and facilitation from MPTC to ensure successful completion of the 4-year program"
+        ],
+        "majorOffered": [
+            "Software Engineering",
+            "Data Science",
+            "E-Commerce",
+            "Telecommunications and Networking Engineering",
+            "Cybersecurity",
+            "AI Engineering and Cybersecurity",
+            "Telecommunications and Electronic Engineering",
+            "Information Technology Engineering",
+            "Data Economy",
+            "Financial Technology",
+            "Global Entrepreneurship and Innovation",
+            "Computer Science",
+            "Management of Information Systems",
+            "Digital Arts and Design",
+            "Information and Communication Technology",
+            "Artificial Intelligence",
+            "Digital Infrastructure",
+            "Data Analytics",
+            "Interactive App Design and Development",
+            "Software Development"
+        ],
+        "applicationDeadline": "2026-09-30",
+        "applicationProcess": [
+            "Online Registration: Students can register via the link from the announcement date until September 30, 2026.",
+            "Ticket Collection: After completing the online registration, candidates must pick up their physical test admission ticket at the Cambodia Academy of Digital Technology (CADT) building.",
+            "Examination Details: The entrance test is conducted on-site at the CADT building during regular working hours from Monday to Friday."
+        ],
+        "applicationLink": "http://www.cadt.edu.kh/scholarship",
+        "documentRequirements": [
+            "National ID or passport",
+            "Official High School National Exam Result (Bac II)"
+        ],
+        "eligibilityCriteria": [
+            "Must be students who passed the 2025 National High School Examination with grades A, B, or C",
+            "Must pass a computer-based competitive exam in Mathematics, Logical Reasoning, and English"
+        ],
+        "status": "Open"
+    }
+]

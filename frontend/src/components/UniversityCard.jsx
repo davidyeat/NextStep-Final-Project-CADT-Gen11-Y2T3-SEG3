@@ -78,12 +78,12 @@ export default function UniversityCard({ university }) {
             <div className="flex items-center gap-3 pt-2">
                 <Link
                     to={`/universities/${university.universityId}/full`}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#0D1220] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1b2235]"
+                    className="w-full rounded-full border border-[#007BFE] cursor-pointer text-[#007BFE] bg-white py-2.5 text-center text-sm font-semibold hover:bg-[#007BFE] hover:text-white transition-colors duration-200"
                 >
                     View Details
                 </Link>
             </div>
         </div>
     </article>
-  );
+    );
 }

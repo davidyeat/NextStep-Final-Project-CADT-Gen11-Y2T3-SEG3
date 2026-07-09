@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getAllScholarships, getScholarshipById, createScholarship, updateScholarship, deleteScholarship} from "../controllers/scholarshipController.js";
+import {getAllScholarships, getScholarshipById, getScholarshipFullDetail ,createScholarship, updateScholarship, deleteScholarship} from "../controllers/scholarshipController.js";
 
 const scholarshipRoutes = Router();
 
@@ -8,6 +8,9 @@ scholarshipRoutes.get("/", getAllScholarships);
 
 // GET /api/scholarships/:id
 scholarshipRoutes.get("/:id", getScholarshipById);
+
+// GET /api/scholarships/:id/full
+scholarshipRoutes.get("/:id/full", getScholarshipFullDetail);
 
 // POST /api/scholarships
 scholarshipRoutes.post("/", createScholarship);

@@ -8,7 +8,7 @@ export async function getAllMajors(req, res){
 
         return res.status(200).json(majors);
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -24,7 +24,7 @@ export async function getMajorById(req, res){
         }
         res.status(200).json(major);
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -57,7 +57,7 @@ export async function createMajor(req, res) {
             data: newMajor
         });
     } catch (error) {
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -99,7 +99,7 @@ export async function updateMajor(req, res) {
             data: updateMajor
         });
     } catch (error) {
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -110,7 +110,7 @@ export async function deleteMajor(req, res) {
 
         res.status(204).json();
     } catch (error) {
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
     

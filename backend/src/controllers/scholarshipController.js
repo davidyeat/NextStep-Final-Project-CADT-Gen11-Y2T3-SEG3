@@ -4,11 +4,10 @@ import errorHandler from "../middlewares/errorMiddleware.js";
 // GET ALL + SEARCH
 export async function getAllScholarships(req, res){
     try {
-        const scholarships = await scholarshipRepo.searchScholarships(req.query);
-
-        return res.status(200).json(scholarships);
+        const scholarships = await scholarshipRepo.getAllScholarships();
+        res.status(200).json(scholarships);
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -24,9 +23,27 @@ export async function getScholarshipById(req, res){
             });
         }
 
-        return res.status(200).json(scholarship);
+        res.status(200).json(scholarship);
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
+    }
+};
+
+// GET SCHOLARSHIP DETAILS
+export async function getScholarshipFullDetail(req, res){
+    try {
+        const scholarship = await scholarshipRepo.getScholarshipFullDetail(req.params.id);
+
+        if(!scholarship){
+            return res.status(404).json({
+                success: false,
+                message: "Scholarship not found!"
+            });
+        }
+
+        res.status(200).json(scholarship);
+    } catch(error){
+        errorHandler(error, req, res);
     }
 };
 
@@ -34,24 +51,24 @@ export async function getScholarshipById(req, res){
 export async function createScholarship(req, res) {
     try {
         const {
-            fundingId, providerId, title, studyIn, description, degreeLevel, amount, currency, 
+            fundingId, providerId, title, studyIn, description, degreeLevel, minAmount, maxAmount, currency, 
             availableSlots, benefits, majorOffered, applicationDeadline, applicationProcess, 
             applicationLink, documentRequirements, eligibilityCriteria, status
         } = req.body;
 
         const newScholarship = await scholarshipRepo.createScholarship({
-            fundingId, providerId, title, studyIn, description, degreeLevel, amount, currency, 
+            fundingId, providerId, title, studyIn, description, degreeLevel, minAmount, maxAmount, currency, 
             availableSlots, benefits, majorOffered, applicationDeadline, applicationProcess, 
             applicationLink, documentRequirements, eligibilityCriteria, status
         });
 
-        return res.status(201).json({
+        res.status(201).json({
             success: true,
             message: "Scholarship create successfully",
             data: newScholarship
         });
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };
 
@@ -61,13 +78,13 @@ export async function updateScholarship(req, res) {
         const scholarshipId = req.params.id;
 
         const {
-            fundingId, providerId, title, studyIn, description, degreeLevel, amount, currency, 
+            fundingId, providerId, title, studyIn, description, degreeLevel, minAmount, maxAmount, currency, 
             availableSlots, benefits, majorOffered, applicationDeadline, applicationProcess, 
             applicationLink, documentRequirements, eligibilityCriteria, status
         } = req.body;
 
         const newScholarship = await scholarshipRepo.updateScholarship(scholarshipId, {
-            fundingId, providerId, title, studyIn, description, degreeLevel, amount, currency, 
+            fundingId, providerId, title, studyIn, description, degreeLevel, minAmount, maxAmount, currency, 
             availableSlots, benefits, majorOffered, applicationDeadline, applicationProcess, 
             applicationLink, documentRequirements, eligibilityCriteria, status
         });
@@ -75,19 +92,19 @@ export async function updateScholarship(req, res) {
         res.status(200).json({
             success: true,
             message: "Scholarship updated successfully",
-            data: updateScholarship
+            data: newScholarship
         });
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };  
 
 // DELETE /api/scholarships/:id
 export async function deleteScholarship(req, res) {
     try {
-        await scholarshipRepo.deleteScholarship(scholarshipId);
+        await scholarshipRepo.deleteScholarship(req.params.id);
         res.status(204).send();
     } catch(error){
-        errorHandler(req, res, error);
+        errorHandler(error, req, res);
     }
 };

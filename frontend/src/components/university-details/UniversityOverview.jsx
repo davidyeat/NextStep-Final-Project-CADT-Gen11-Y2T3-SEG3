@@ -1,5 +1,5 @@
 import asParagraphs from '../../utils/convertToParagraphs';
-import MissionVision from './MissionVision';
+import RenderList from './RenderList';
 
 export default function UniversityOverview({ university }) {
     return (
@@ -16,11 +16,11 @@ export default function UniversityOverview({ university }) {
                     <p className="space-y-1.5 text-[16px] leading-7 text-gray-900 mt-4">
                         {university.description}
                     </p>
-                    <MissionVision 
+                    <RenderList
                         title="Mission"
                         items={asParagraphs(university.mission)}
                     />
-                    <MissionVision 
+                    <RenderList
                         title="Vision"
                         items={asParagraphs(university.vision)}
                     />

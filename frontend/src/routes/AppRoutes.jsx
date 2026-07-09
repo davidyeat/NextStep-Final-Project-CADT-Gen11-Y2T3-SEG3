@@ -22,7 +22,7 @@ export default function AppRoutes() {
                     <Route path="/universities" element={<University />} />
                     <Route path="/universities/:universityId/full" element={<UniversityDetails />} />
                     <Route path="/scholarships" element={<Scholarship />} />
-                    <Route path="/scholarships/:scholarshipId" element={<ScholarshipDetail />} />
+                    <Route path="/scholarships/:scholarshipId/full" element={<ScholarshipDetail />} />
                     <Route path="/majors" element={<Major />} />
                     <Route path="/recommendations" element={<ProtectedRoute><Recommendation /></ProtectedRoute>} />
                     <Route path="/about-us" element={<About />} />

@@ -37,7 +37,7 @@ export default function UniversityDetails() {
                 const universityData = await getUniversityFullDetail(universityId);
                 setUniversity(universityData);
             } catch (error) {
-                setError("Unable to load university details right now.");
+                setError("Unable to load university details right now.", error);
             } finally {
                 setLoading(false);
             }
@@ -118,7 +118,7 @@ export default function UniversityDetails() {
         );
     }
 
-    // Something wrong...
+    // Something went wrong...
     if(error) {
         return (
             <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center">

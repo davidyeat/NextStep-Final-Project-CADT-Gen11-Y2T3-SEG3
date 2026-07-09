@@ -1,75 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BookOpenText, Loader2, Search, X } from "lucide-react";
 import ScholarshipCard from "../components/ScholarshipCard";
 import ScholarshipFilterPanel from "../components/ScholarshipFilterPanel";
-import {
-    initialScholarshipFilters,
-    normalizeText,
-    scholarshipList,
-    scholarshipMatchesLevel,
-    scholarshipMatchesProvider,
-    scholarshipMatchesSupportType,
-} from "../manual data/scholarshipData";
+import { getScholarships } from "../services/scholarshipService";
+
+const initialFilters = {
+    levelOfStudy: "",
+    supportType: "",
+    provider: "",
+    majorSearch: "",
+};
 
 export default function Scholarship() {
-    const [scholarships] = useState(scholarshipList);
+    const [scholarships, setScholarships] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filters, setFilters] = useState(initialScholarshipFilters);
+    const [filters, setFilters] = useState(initialFilters);
     const [showFilters, setShowFilters] = useState(false);
-    const [loading] = useState(false);
-    const [error] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
-    const loweredSearch = searchTerm.trim().toLowerCase();
+    useEffect(() => {
+        const fetchScholarships = async() => {
+            try {
+                setLoading(true);
+                const data = await getScholarships();
+                console.log(data);
+                setScholarships(data);
+            } catch (err) {
+                setError("Unable to load scholarships", err)
+            } finally {
+                setLoading(false)
+            }
+        };
 
-    const filteredScholarships = scholarships.filter((scholarship) => {
-        const matchesSearch =
-            !loweredSearch ||
-            [
-                scholarship.title,
-                scholarship.studyIn,
-                scholarship.degreeLevel,
-                scholarship.status,
-                scholarship.description,
-                scholarship.majorOffered,
-            ]
-                .filter(Boolean)
-                .some((value) => String(value).toLowerCase().includes(loweredSearch));
-
-        const matchesLevel = scholarshipMatchesLevel(scholarship, filters.levelOfStudy);
-        const matchesSupportType = scholarshipMatchesSupportType(
-            scholarship,
-            filters.supportType
-        );
-        const matchesProvider = scholarshipMatchesProvider(
-            scholarship,
-            filters.provider
-        );
-        const matchesMajorSearch =
-            !filters.majorSearch ||
-            normalizeText(scholarship.majorOffered).includes(
-                filters.majorSearch.toLowerCase()
-            );
-
-        return (
-            matchesSearch &&
-            matchesLevel &&
-            matchesSupportType &&
-            matchesProvider &&
-            matchesMajorSearch
-        );
-    });
+        fetchScholarships();
+    }, []);
 
     const clearFilters = () => {
-        setFilters(initialScholarshipFilters);
+        setFilters(initialFilters);
         setSearchTerm("");
     };
 
-    const hasActiveFilters =
-        searchTerm ||
-        filters.levelOfStudy ||
-        filters.supportType ||
-        filters.provider ||
-        filters.majorSearch;
+    const hasActiveFilters = searchTerm || filters.levelOfStudy || filters.supportType || filters.provider || filters.majorSearch;
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-gray-900">
@@ -91,7 +63,7 @@ export default function Scholarship() {
                         <p className="text-sm text-gray-500">
                             Showing{" "}
                             <span className="font-medium text-gray-950">
-                                {filteredScholarships.length}
+                                {scholarships.length > 0 ? scholarships.length : "0"}
                             </span>{" "}
                             of {scholarships.length} scholarships
                         </p>
@@ -135,7 +107,7 @@ export default function Scholarship() {
                     <div className="rounded-3xl border border-red-200 bg-red-50 px-6 py-10 text-center text-sm text-red-700">
                         {error}
                     </div>
-                ) : filteredScholarships.length === 0 ? (
+                ) : scholarships.length === 0 ? (
                     <div className="rounded-3xl border border-dashed border-[#D6D3D1] bg-white px-6 py-16 text-center">
                         <BookOpenText className="mx-auto h-10 w-10 text-[#9CA3AF]" />
                         <h2 className="mt-4 text-xl font-semibold text-gray-950">
@@ -156,10 +128,17 @@ export default function Scholarship() {
                     </div>
                 ) : (
                     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        {filteredScholarships.map((scholarship) => (
+                        {scholarships.map((scholarship) => (
                             <ScholarshipCard
                                 key={scholarship.scholarshipId}
-                                scholarship={scholarship}
+                                image={scholarship.coverImage || "/default-scholarship.jpg"}
+                                logo={scholarship.Provider?.providerLogo || "/default-provider-logo.png"}
+                                title={scholarship.title}
+                                studyIn={scholarship.studyIn}
+                                type={scholarship.FundingType?.name || "N/A"}
+                                degree={scholarship.degreeLevel}
+                                deadline={scholarship.applicationDeadline}
+                                scholarshipId={scholarship.scholarshipId}
                             />
                         ))}
                     </div>
