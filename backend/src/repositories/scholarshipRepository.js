@@ -1,4 +1,5 @@
 import sequelize from "../config/database.js";
+import Admission from "../models/admission.js";
 import FundingType from "../models/fundingType.js";
 import Provider from "../models/provider.js";
 import Scholarship from "../models/scholarship.js";
@@ -30,7 +31,7 @@ export const getScholarshipFullDetail = async(scholarshipId) => {
     return await Scholarship.findByPk(scholarshipId, {
         include: [
             { model: FundingType, attributes: ["fundingId", "name"] },
-            { model: Provider, attributes: [ "providerId", "providerName", "providerLogo", "providerType"] }
+        { model: Provider, attributes: [ "providerId", "providerName", "providerLogo", "providerType"] },
         ]
     });
 };

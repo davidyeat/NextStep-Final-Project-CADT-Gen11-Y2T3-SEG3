@@ -6,7 +6,7 @@ export async function getAllMajors(req, res){
     try {
         const majors = await majorRepo.searchMajors(req.query);
 
-        return res.status(200).json(majors);
+        res.status(200).json(majors);
     } catch(error){
         errorHandler(error, req, res);
     }
@@ -32,23 +32,19 @@ export async function getMajorById(req, res){
 export async function createMajor(req, res) {
     try {
         const {
-            departmentId,
+            academicUnitId,
             name,
             degreeLevel,
             tuitionFee,
             description,
-            learningOutcomes,
-            futureCareerProspects,
         } = req.body;
 
         const newMajor = await majorRepo.createMajor({
-            departmentId,
+            academicUnitId,
             name,
             degreeLevel,
             tuitionFee,
             description,
-            learningOutcomes,
-            futureCareerProspects
         });
 
         return res.status(201).json({
@@ -66,24 +62,19 @@ export async function updateMajor(req, res) {
     try {
         const { majorId } = req.params;
         const {
-            departmentId,
+            academicUnitId,
             name,
             degreeLevel,
             tuitionFee,
             description,
-            learningOutcomes,
-            futureCareerProspects,
         } = req.body;
 
         const updatedMajor = await majorRepo.updateMajor(majorId, {
-            departmentId,
-            categoryId,
+            academicUnitId,
             name,
             degreeLevel,
             tuitionFee,
             description,
-            learningOutcomes,
-            futureCareerProspects
         });
 
         if (!updatedMajor) {

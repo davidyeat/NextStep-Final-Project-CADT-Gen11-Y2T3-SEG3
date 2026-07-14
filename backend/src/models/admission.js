@@ -14,7 +14,7 @@ const Admission = sequelize.define('Admission', {
     },
 
     title: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
 
@@ -24,6 +24,11 @@ const Admission = sequelize.define('Admission', {
 
     requirements: {
         type: DataTypes.JSON,
+    },
+
+    contact: {
+        type: DataTypes.JSON,
+        allowNull: false
     }
 });
 

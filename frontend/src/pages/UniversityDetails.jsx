@@ -137,9 +137,11 @@ export default function UniversityDetails() {
     }
 
     return (
-        <main className="min-h-screen bg-[#FAFAF9] text-gray-900">
+        <main className="min-h-screen bg-[#FAFAF9]">
+            {/* Hero Section */}
             <UniversityDetailsHero university={university} />
-
+            
+            {/* Main Content */}
             <div className="mx-auto max-w-7xl px-6 pb-10 pt-6 lg:px-10">
                 <div className="flex flex-col gap-8 lg:flex-row">
                     <UniversityDetailSidebar
@@ -149,7 +151,7 @@ export default function UniversityDetails() {
                         onTabChange={handleTabChange}
                     />
 
-                    <div id="main-content" className="w-full flex-1 space-y-10 scroll-smooth">
+                    <div id="main-content" className="w-full flex-1 space-y-5 scroll-smooth">
                         <div id="overview" className="scroll-mt-32">
                             <UniversityOverview university={university} />
                         </div>

@@ -1,5 +1,4 @@
 import Admission from "../models/admission.js";
-import { Op } from "sequelize";
 
 // Get all university admission
 export const getAllAdmission = async() => {

@@ -20,10 +20,12 @@ export const getUniversityById = async (universityId) => {
 export const getUniversityFullDetail = async(universityId) => {
     return await University.findByPk(universityId, {
         include: [
-            { model: Admission },
-            { model: Facility },
-            { model: Scholarship },
-            { model: AcademicUnit, include: [{ model: Major }]}
+            { model: Admission, attributes: [ "title", "description", "requirements", "contact" ] },
+            { model: AcademicUnit, attributes: [ "name", "type", "description" ],
+                include: [
+                    { model: Major, attributes: [ "name" ] }
+                ]
+            }
         ]
     });
 }

@@ -28,23 +28,20 @@ const Major = sequelize.define("Major", {
 
     tuitionFee: {
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
         validate: {
-            min: 0
+            isMinIfNotNull(value) {
+                if (value !== null && value < 0) {
+                    throw new Error("Tuition fee cannot be less than 0.");
+                }
+            }
         }
     },
 
     description: {
         type: DataTypes.TEXT
     },
-
-    learningOutcomes: {
-        type: DataTypes.JSON
-    },
-
-    futureCareerProspects: {
-        type: DataTypes.JSON
-    }
 }, {
     timestamps: true
 });

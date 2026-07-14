@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BookOpenText, Loader2, Search, X } from "lucide-react";
 import ScholarshipCard from "../components/ScholarshipCard";
-import ScholarshipFilterPanel from "../components/ScholarshipFilterPanel";
+// import ScholarshipFilterPanel from "../components/ScholarshipFilterPanel";
 import { getScholarships } from "../services/scholarshipService";
 
 const initialFilters = {
@@ -82,7 +82,7 @@ export default function Scholarship() {
                         </div>
                     </div>
 
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                         <ScholarshipFilterPanel
                             showFilters={showFilters}
                             setShowFilters={setShowFilters}
@@ -91,7 +91,7 @@ export default function Scholarship() {
                             hasActiveFilters={hasActiveFilters}
                             clearFilters={clearFilters}
                         />
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

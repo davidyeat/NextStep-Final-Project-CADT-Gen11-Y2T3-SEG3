@@ -24,9 +24,7 @@ export default function University() {
             try {
                 setLoading(true);
                 const data = await getUniversities();
-                console.log(data);
                 setUniversities(data);
-                setError("");
             } catch (err) {
                 setError("Unable to load universities right now.", err);
             } finally {
