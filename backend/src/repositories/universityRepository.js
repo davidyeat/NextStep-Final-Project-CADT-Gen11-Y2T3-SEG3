@@ -52,19 +52,12 @@ export const deleteUniversity = async (universityId) => {
 // Search + Filter + Pagination
 export const searchUniversities = async (filters) => {
     const where = {};
+    const include = [];
 
     if (filters.search?.trim()) {
         where[Op.or] = [
-            {
-                campusName: {
-                    [Op.like]: `%${filters.search}%`
-                }
-            },
-            {
-                shortName: {
-                    [Op.like]: `%${filters.search}%`
-                }
-            }
+            { campusName: {[Op.like]: `%${filters.search}%`}},
+            {shortName: {[Op.like]: `%${filters.search}%`}}
         ];
     }
 
@@ -80,23 +73,42 @@ export const searchUniversities = async (filters) => {
         where.city = filters.city;
     }
 
+    if (filters.major?.trim()) {
+        include.push({
+            model: AcademicUnit, 
+            required: true,
+            include: [
+                {
+                    model: Major, 
+                    required: true, 
+                    where: {
+                        name: { [Op.like]: `%${filters.major}%` }
+                    }
+                }
+            ]
+        });
+    }
+
     // Filter by Fee Range
     const minFee = filters.minFee ? Number(filters.minFee) : null;
     const maxFee = filters.maxFee ? Number(filters.maxFee) : null;
 
-    if (minFee !==null || maxFee !== null) {
-        where.tuition_fee = {};
+    if (minFee !== null) {
+            // University's minimum tuition must meet or exceed user budget minimum
+            where.minAmount = {
+                [Op.gte]: minFee
+            };
+        }
 
-        if (minFee !== null) {
-            where.tuition_fee[Op.gte] = minFee;
-        }
-        if (maxFee !== null) {
-            where.tuition_fee[Op.lte] = maxFee;
-        }
+    if (maxFee !== null) {
+        // University's maximum tuition must stay below or equal to user budget limit
+        where.maxAmount = {
+            [Op.lte]: maxFee
+        };
     }
 
     const page = Number(filters.page) || 1;
-    const limit = Number(filters.limit) || 10;
+    const limit = Number(filters.limit) || 9;
     const offset = (page - 1) * limit;
 
     const { rows, count } = await University.findAndCountAll({

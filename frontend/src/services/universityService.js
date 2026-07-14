@@ -1,19 +1,30 @@
 import api from "./api";
 
-export const getUniversities = async() => {
-    const response = await api.get("/universities");
-    return response.data.universities;
-}
+export const getUniversities = async (params = {}) => {
+    const response = await api.get("/universities", { params });
+    return response.data;
+};
+
+export const getAdminUniversities = async ({page = 1, limit = 10, search = ""} = {}) => {
+    const params = { page, limit };
+
+    if (search?.trim()) {
+        params.search = search.trim();
+    }
+
+    const response = await api.get("/universities", { params });
+    return response.data;
+};
 
 export const getUniversityById = async (id) => {
     const response = await api.get(`/universities/${id}`);
     return response.data;
 };
 
-export const getUniversityFullDetail = async(id) => {
+export const getUniversityFullDetail = async (id) => {
     const response = await api.get(`/universities/${id}/full`);
     return response.data;
-}
+};
 
 export const createUniversity = async (universityData) => {
     const response = await api.post("/universities", universityData);

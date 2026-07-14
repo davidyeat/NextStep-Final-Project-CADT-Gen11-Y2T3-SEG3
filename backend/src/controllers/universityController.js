@@ -52,12 +52,12 @@ export const createUniversity = async (req, res) => {
     try {
         const { 
             campusName, shortName, type, websiteUrl, logoUrl, coverImageUrl, province, 
-            city,email, phoneNumber, address, description, vision,mission
+            city,email, phoneNumber, minTuition, maxTuition, address, description, vision,mission
         } = req.body;
         
         const newUniversity = await universityRepo.createUniversity({
             campusName, shortName, type, websiteUrl, logoUrl, coverImageUrl, province,
-            city, email, phoneNumber,  address, description, vision, mission
+            city, email, phoneNumber, minAmount: minTuition, maxAmount: maxTuition, address, description, vision, mission
         });
 
         return res.status(201).json({
@@ -76,12 +76,12 @@ export const updateUniversity = async (req, res) => {
         const universityId = req.params.id;
         const {
             campusName, shortName, type, websiteUrl, logoUrl, coverImageUrl, province, 
-            city,email, phoneNumber, address, description, vision, mission
+            city,email, phoneNumber, minTuition, maxTuition, address, description, vision, mission
         } = req.body;
 
         const updatedUniversity = await universityRepo.updateUniversity(universityId, {
             campusName, shortName, type, websiteUrl, logoUrl, coverImageUrl, province, 
-            city,email, phoneNumber, address, description, vision,mission
+            city, email, phoneNumber, minAmount: minTuition, maxAmount: maxTuition, address, description, vision,mission
         });
 
         return res.status(200).json({
