@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
         setUser(data);
         setIsAuthenticated(true);
       } catch (error) {
-        if (error.response?.status === 401) {
+        if ([401, 403].includes(error.response?.status)) {
           setUser(null);
           setIsAuthenticated(false);
         } else {
@@ -35,10 +35,10 @@ export function AuthProvider({ children }) {
 
   async function login(credentials) {
     try {
-      const userData = await loginUser(credentials);
-      setUser(userData);
+      const response = await loginUser(credentials);
+      setUser(response.user);
       setIsAuthenticated(true);
-      return userData;
+      return response.user;
     } catch (error) {
       console.error("Login failed:", error);
       throw error;
@@ -47,10 +47,10 @@ export function AuthProvider({ children }) {
 
   async function register(userData) {
     try {
-      const newUser = await registerUser(userData);
-      setUser(newUser);
+      const response = await registerUser(userData);
+      setUser(response.user);
       setIsAuthenticated(true);
-      return newUser;
+      return response.user;
     } catch (error) {
       setUser(null);
       setIsAuthenticated(false);

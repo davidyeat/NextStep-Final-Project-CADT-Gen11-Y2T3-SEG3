@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MapPin, Tag, GraduationCap, Calendar, CheckCircle2, BookOpen, Award, FileText, ChartNoAxesCombined } from "lucide-react";
 import ScholarshipDetailHero from "../components/scholarship-details/ScholarshipDetailHero";
@@ -9,12 +9,18 @@ import formatAmount from "../utils/formatAmount";
 import asParagraphs from "../utils/convertToParagraphs";
 import RenderList from "../components/scholarship-details/RenderList";
 import { getScholarshipFullDetail } from "../services/scholarshipService";
+import { getFavorites, removeFavorite, saveFavorite } from "../services/favoriteService";
+import useAuth from "../hooks/useAuth";
 
 export default function ScholarshipDetail() {
   const { scholarshipId } = useParams();
   const [scholarship, setScholarship] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchScholarship = async () => {
@@ -32,6 +38,22 @@ export default function ScholarshipDetail() {
 
     fetchScholarship();
   }, [scholarshipId]);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    getFavorites().then(({ scholarships }) => setIsFavorite(scholarships.some((item) => item.scholarshipId === Number(scholarshipId)))).catch(() => {});
+  }, [isAuthenticated, scholarshipId]);
+
+  const handleToggleFavorite = async () => {
+    if (!isAuthenticated) return navigate("/login", { state: { from: location } });
+    try {
+      if (isFavorite) await removeFavorite("scholarship", scholarshipId);
+      else await saveFavorite("scholarship", scholarshipId);
+      setIsFavorite((current) => !current);
+    } catch (requestError) {
+      setError(requestError.response?.data?.message || "Unable to update saved items.");
+    }
+  };
 
   // Loading...
   if (loading) {
@@ -89,7 +111,7 @@ export default function ScholarshipDetail() {
 
   return (
     <main className="min-h-screen bg-[#FAFAF9] text-slate-900">
-      <ScholarshipDetailHero scholarships={scholarship} />
+      <ScholarshipDetailHero scholarships={scholarship} isFavorite={isFavorite} onToggleFavorite={handleToggleFavorite} />
       <div className="mx-auto max-w-7xl px-6 pb-10 lg:px-10">
 
         {/* Quick Info Card */}

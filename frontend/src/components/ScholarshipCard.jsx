@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Tag, GraduationCap, Calendar } from "lucide-react";
+import { MapPin, Tag, GraduationCap, Calendar, Heart } from "lucide-react";
 import formatDate from "../utils/formatDate";
 
 /**
@@ -18,7 +18,7 @@ import formatDate from "../utils/formatDate";
  * - onViewDetails: function
  */
 
-export default function ScholarshipCard({ image, logo, title, studyIn, type, degree, deadline, scholarshipId }) {
+export default function ScholarshipCard({ image, logo, title, studyIn, type, degree, deadline, scholarshipId, onRemoveFavorite }) {
     const formattedDeadline = formatDate(deadline);
 
     return (
@@ -57,13 +57,25 @@ export default function ScholarshipCard({ image, logo, title, studyIn, type, deg
             </div>
 
             {/* CTA */}
-            <Link to={`/scholarships/${scholarshipId}/full`}>
+            <div className="flex items-center gap-3">
+            <Link to={`/scholarships/${scholarshipId}/full`} className="w-full">
                 <button
                     className="w-full rounded-full border border-[#007BFE] cursor-pointer text-[#007BFE] bg-white py-2.5 text-center text-sm font-semibold hover:bg-[#007BFE] hover:text-white transition-colors duration-200"
                 >
                     View Details
                 </button>
             </Link>
+            {onRemoveFavorite && (
+                <button
+                    type="button"
+                    onClick={onRemoveFavorite}
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-red-200 text-red-500 transition hover:bg-red-50"
+                    aria-label={`Remove ${title} from saved items`}
+                >
+                    <Heart className="h-4 w-4 fill-current" />
+                </button>
+            )}
+            </div>
         </article>
     );
 }

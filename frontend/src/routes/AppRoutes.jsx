@@ -21,6 +21,7 @@ import Settings from "../pages/admin/Settings";
 import CreateUniversity from "../pages/admin/CreateUniversity";
 import CreateScholarship from "../pages/admin/CreateScholarship";
 import CreateMajor from "../pages/admin/CreateMajor";
+import FavoriteList from "../pages/FavoriteList";
 
 export default function AppRoutes() {
     return (
@@ -33,6 +34,7 @@ export default function AppRoutes() {
                     <Route path="/scholarships" element={<Scholarship />} />
                     <Route path="/scholarships/:scholarshipId/full" element={<ScholarshipDetail />} />
                     <Route path="/recommendations" element={<ProtectedRoute><Recommendation /></ProtectedRoute>} />
+                    <Route path="/favorites" element={<ProtectedRoute><FavoriteList /></ProtectedRoute>} />
                     <Route path="/about-us" element={<About />} />
                 </Route>
 
@@ -41,7 +43,7 @@ export default function AppRoutes() {
                     <Route path="/sign-up" element={<SignUp />} />
                 </Route>
 
-                <Route element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+                <Route element={<ProtectedRoute allowedRoleIds={[1]}><AdminLayout /></ProtectedRoute>}>
                     <Route path="/admin" element={<Dashboard />} />
                     <Route path="/admin/universities" element={<Universities />} />
                     <Route path="/admin/universities/new" element={<CreateUniversity />} />

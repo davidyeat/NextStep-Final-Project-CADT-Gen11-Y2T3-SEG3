@@ -9,6 +9,7 @@ const handleValidationError = (err) => {
 }
 
 const errorHandler = (err, req, res, next) => {
+    console.error(err);
     // Handle Sequelize unique constraint errors
     if (err.name === 'SequelizeUniqueConstraintError') {
         return res.status(409).json({
@@ -31,7 +32,9 @@ const errorHandler = (err, req, res, next) => {
     // Handle other types of errors
     res.status(500).json({
         success: false,
-        message: err.message || "Internal Server Error"
+        message: process.env.NODE_ENV === "production"
+            ? "Internal Server Error"
+            : err.message || "Internal Server Error"
     });
 };
 

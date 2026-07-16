@@ -1,0 +1,225 @@
+[
+// CADT --------------------------------------------------------
+    {
+        "universityId": 1,
+        "title": "Bachelor's Degree Admission Requirements",
+        "description": "Comprehensive admission criteria for entering undergraduate programs at the Cambodia Academy of Digital Technology (CADT).",
+        "requirements": {
+            "proof_of_identity": {
+                "description": "You must submit one of your official identification documents for verification:",
+                "options": [
+                    "Cambodia National Identity Card",
+                    "Passport",
+                    "Birth Certificate"
+                ]
+            },
+            "proof_of_high_school_graduation": {
+                "description": "You must provide official proof that you have successfully completed high school:",
+                "options": [
+                    "A High School National Diploma (Grade 12 certificate from graduation years 2021 to 2026)",
+                    "Open to all passing marks/grades (A to E) from both the Science and Social Science tracks",
+                    "An official High School Transcript / Grade Report"
+                ]
+            },
+            "entrance_examination": {
+                "description": "All candidates must pass the official computer-based capacity assessment test organized by the Institute of Digital Technology:",
+                "options": [
+                    "Mathematics foundational knowledge test",
+                    "Logic and reasoning evaluation paper",
+                    "English language proficiency test section"
+                ]
+            }
+        },
+        "contact": {
+            "office_location": "CADT Innovation Center: Bridge 2, National Road 6A, Sangkat Prek Leap, Khan Chroy Changva Phnom Penh.",
+            "tel": "015 335 877 / 077 335 877",
+            "email": "admission@cadt.edu.kh"
+        }
+    },
+
+// RUPP --------------------------------------------------------
+    {
+        "universityId": 2,
+        "title": "Bachelor's Degree Admission Requirements",
+        "description": "Comprehensive admission criteria for entering undergraduate programs at the Royal University of Phnom Penh (RUPP).",
+        "requirements": {
+            "proof_of_identity": {
+                "description": "You must submit one of your official identification documents for verification:",
+                "options": [
+                    "Cambodia National Identity Card",
+                    "Passport",
+                    "Birth Certificate"
+                ]
+            },
+            "proof_of_high_school_graduation": {
+                "description": "You must provide official proof that you have successfully completed high school:",
+                "options": [
+                    "A High School National Diploma (Grade 12 certificate)",
+                    "An official High School Transcript / Grade Report"
+                ]
+            },
+            "entrance_examination": {
+                "description": "Direct entry is allocated based on priority Grade 12 scores for general majors, but premium specialized departments require an additional examination:",
+                "options": [
+                    "Institute of Foreign Languages (IFL): Mandatory English or French entrance test",
+                    "Institute for International Studies and Public Policy (IISPP): General knowledge, logic, and English writing evaluation papers",
+                    "Department of Computer Science / Engineering: Fundamental mathematics and logic metrics screening"
+                ]
+            }
+        },
+        "contact": {
+            "office_location": "RUPP Campus I: Main Administration Building, Russian Federation Blvd, Phnom Penh",
+            "tel": "023 883 640",
+            "email": "info@rupp.edu.kh"
+        }
+    },
+
+// ITC --------------------------------------------------------
+    {
+        "universityId": 3,
+        "title": "Bachelor's Degree Admission Requirements",
+        "description": "Comprehensive admission criteria for entering undergraduate programs at the Institute of Technology of Cambodia (ITC / Sala Techno).",
+        "requirements": {
+            "proof_of_identity": {
+                "description": "You must submit one of your official identification documents for verification:",
+                "options": [
+                    "Cambodia National Identity Card",
+                    "Passport",
+                    "Birth Certificate"
+                ]
+            },
+            "proof_of_high_school_graduation": {
+                "description": "You must provide official proof that you have successfully completed high school:",
+                "options": [
+                    "A High School National Diploma (Grade 12 certificate) or equivalent",
+                    "An official High School Transcript / Grade Report"
+                ]
+            },
+            "entrance_examination": {
+                "description": "All freshman engineering tracks require clearing the highly competitive STEM entrance assessment:",
+                "options": [
+                    "Mathematics Examination (Duration: 2 hours)",
+                    "Logic and Reasoning Assessment (Duration: 1 hour)",
+                    "Combined Physics and Chemistry Examination (Duration: 2 hours)"
+                ]
+            }
+        },
+        "contact": {
+            "office_location": "ITC Main Campus: PO Box 86, Russian Conf. Blvd. Phnom Penh, Cambodia",
+            "tel": "855 23 880 370 / 982 404",
+            "email": "info@itc.edu.kh"
+        }
+    },
+
+// NUM --------------------------------------------------------
+    {
+        "universityId": 4,
+        "title": "NUM Bachelor's Degree Admission Requirements",
+        "description": "Comprehensive admission criteria for entering undergraduate programs at the National University of Management (NUM).",
+        "requirements": {
+            "proof_of_identity": {
+                "description": "You must submit one of your official identification documents for verification:",
+                "options": [
+                    "Cambodia National Identity Card",
+                    "Passport",
+                    "Birth Certificate"
+                ]
+            },
+            "proof_of_high_school_graduation": {
+                "description": "You must provide official proof that you have successfully completed high school:",
+                "options": [
+                    "A High School National Diploma (Grade 12 certificate)",
+                    "An official High School Transcript / Grade Report"
+                ]
+            },
+            "program_entry_tracks": {
+                "description": "Admission guidelines differ depending on whether you are tracking into national or global academic programs:",
+                "options": [
+                    "National Programs: Direct grade priority selection matching high school diploma metrics",
+                    "International Bachelor's Programs (NUM International College / FDE): Compulsory internal English proficiency diagnostics evaluation and a brief placement interview round"
+                ]
+            }
+        },
+        "contact": {
+            "office_location": "NUM Main Campus: Corner of Monivong Blvd and St. 96, Daun Penh, Phnom Penh",
+            "tel": "023 428 120",
+            "email": "info@num.edu.kh"
+        }
+    },
+
+// ParagonIU --------------------------------------------------------
+    {
+        "universityId": 5,
+        "title": "Bachelor's Degree Admission Requirements",
+        "description": "Comprehensive admission criteria for entering undergraduate programs at Paragon International University (ParagonIU).",
+        "requirements": {
+            "proof_of_identity": {
+                "description": "You must submit one of your official identification documents for verification:",
+                "options": [
+                    "Cambodia National Identity Card",
+                    "Passport",
+                    "Birth Certificate"
+                ]
+            },
+            "proof_of_high_school_graduation": {
+                "description": "You must provide official proof that you have successfully completed high school:",
+                "options": [
+                    "A High School National Diploma (Grade 12 certificate)",
+                    "An official High School Transcript / Grade Report"
+                ]
+            },
+            "proof_of_english_proficiency": {
+                "description": "As the primary medium of instruction is English, students must verify language proficiency to bypass the foundation program year:",
+                "options": [
+                    "IELTS overall band score of 5.5 or higher",
+                    "TOEFL iBT score of at least 60 or higher",
+                    "GEP Level 12 Certificate from Australian Center for Education"
+                ]
+            }
+        },
+        "contact": {
+            "office_location": "ParagonIU Reception Desk: No. 8 St. 315, Boeng Kak 1, Tuol Kork Phnom Penh, Cambodia",
+            "tel": "+855-23-996-111, +855-17-996-111, or +855-15-996-111",
+            "email": "admission@paragoniu.edu.kh"
+        }
+    },
+
+// AUPP --------------------------------------------------------
+    {
+    "universityId": 6,
+    "title": "AUPP Bachelor's Degree Admission Requirements",
+    "description": "Comprehensive admission criteria for entering undergraduate programs at the American University of Phnom Penh (AUPP).",
+    "requirements": {
+        "proof_of_identity": {
+        "description": "You must submit one of your official identification documents for verification:",
+        "options": [
+            "Cambodia National Identity Card",
+            "Passport",
+            "Birth Certificate"
+        ]
+        },
+        "proof_of_high_school_graduation": {
+        "description": "You must provide official proof that you have successfully completed high school:",
+        "options": [
+            "A High School National Diploma (Grade 12 certificate)",
+            "An official High School Transcript / Grade Report"
+        ]
+        },
+        "proof_of_english_proficiency": {
+        "description": "Since all classes are taught in English, you must meet one of the following conditions to enter straight into a Bachelor's degree program:",
+        "options": [
+            "IELTS overall score of a 6.0",
+            "TOEFL iBT score of at least 79",
+            "Duolingo score of 110 or higher",
+            "Cambridge English (B2 First/C1 Advanced) score of 169 or higher",
+            "AUPP English Placement Test (EPT): If you do not have an official IELTS/TOEFL score, you can pay a $15 fee to take AUPP’s internal exam"
+        ]
+        }
+    },
+    "contact": {
+        "office_location": "AUPP Campus: Room A8 (Reception Area)",
+        "tel": "012 266 631",
+        "email": "admissions@aupp.edu.kh"
+    }
+    }
+]

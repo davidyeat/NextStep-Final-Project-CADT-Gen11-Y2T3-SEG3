@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Building2, MapPin, Tag, DollarSign, BookOpen } from "lucide-react";
+import { Building2, Heart, MapPin, Tag, DollarSign, BookOpen } from "lucide-react";
 
-export default function UniversityCard({ university }) {
+export default function UniversityCard({ university, onRemoveFavorite }) {
     return (
         <article className="overflow-hidden rounded-2xl border border-[#E7E5E4] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.06)] transition-transform duration-200 hover:-translate-y-1">
             <div className="relative h-44 overflow-hidden bg-linear-to-br from-[#0F172A] via-[#1E293B] to-[#334155]">
@@ -62,6 +62,16 @@ export default function UniversityCard({ university }) {
                     >
                         View Details
                     </Link>
+                    {onRemoveFavorite && (
+                        <button
+                            type="button"
+                            onClick={onRemoveFavorite}
+                            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-red-200 text-red-500 transition hover:bg-red-50"
+                            aria-label={`Remove ${university.campusName} from saved items`}
+                        >
+                            <Heart className="h-4 w-4 fill-current" />
+                        </button>
+                    )}
                 </div>
             </div>
         </article>

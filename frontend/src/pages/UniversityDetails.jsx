@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import UniversityDetailSidebar from "../components/university-details/UniversityDetailSidebar";
 import UniversityDetailsHero from "../components/university-details/UniversityDetailsHero";
 import UniversityOverview from "../components/university-details/UniversityOverview";
@@ -11,6 +11,8 @@ import UniversityCampusLife from "../components/university-details/UniversityCam
 import UniversityLocation from "../components/university-details/UniversityLocation";
 import UniversityContact from "../components/university-details/UniversityContact";
 import { getUniversityFullDetail } from "../services/universityService";
+import { getFavorites, removeFavorite, saveFavorite } from "../services/favoriteService";
+import useAuth from "../hooks/useAuth";
 
 const detailTabs = [
     { label: "Overview", value: "overview" },
@@ -29,6 +31,10 @@ export default function UniversityDetails() {
     const [activeTab, setActiveTab] = useState("overview");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [isFavorite, setIsFavorite] = useState(false);
+    const { isAuthenticated } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUniversity = async () => {
@@ -45,6 +51,22 @@ export default function UniversityDetails() {
 
         fetchUniversity();
     }, [universityId]);
+
+    useEffect(() => {
+        if (!isAuthenticated) return;
+        getFavorites().then(({ universities }) => setIsFavorite(universities.some((item) => item.universityId === Number(universityId)))).catch(() => {});
+    }, [isAuthenticated, universityId]);
+
+    const handleToggleFavorite = async () => {
+        if (!isAuthenticated) return navigate("/login", { state: { from: location } });
+        try {
+            if (isFavorite) await removeFavorite("university", universityId);
+            else await saveFavorite("university", universityId);
+            setIsFavorite((current) => !current);
+        } catch (requestError) {
+            setError(requestError.response?.data?.message || "Unable to update saved items.");
+        }
+    };
 
     useEffect(() => {
         if (!university) {
@@ -139,7 +161,7 @@ export default function UniversityDetails() {
     return (
         <main className="min-h-screen bg-[#FAFAF9]">
             {/* Hero Section */}
-            <UniversityDetailsHero university={university} />
+            <UniversityDetailsHero university={university} isFavorite={isFavorite} onToggleFavorite={handleToggleFavorite} />
             
             {/* Main Content */}
             <div className="mx-auto max-w-7xl px-6 pb-10 pt-6 lg:px-10">

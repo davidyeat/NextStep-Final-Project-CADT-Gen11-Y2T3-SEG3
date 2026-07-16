@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Heart } from "lucide-react";
 
-export default function UniversityDetailsHero({ university }) {
+export default function UniversityDetailsHero({ university, isFavorite, onToggleFavorite }) {
   return (
     <div className="relative w-full overflow-hidden">
       <div className="relative h-112 w-full bg-linear-to-br from-[#0F172A] via-[#111827] to-[#1F2937]">
@@ -38,9 +38,13 @@ export default function UniversityDetailsHero({ university }) {
             </div>
 
             <button
+              type="button"
+              onClick={onToggleFavorite}
+              aria-label={isFavorite ? "Remove from saved items" : "Save university"}
+              aria-pressed={isFavorite}
               className="shrink-0 rounded-full bg-white/85 p-3 text-gray-600 shadow-lg shadow-black/20 backdrop-blur-sm transition-transform hover:scale-105 hover:bg-white"
             >
-              <Heart className="h-5 w-5" />
+              <Heart className={`h-5 w-5 ${isFavorite ? "fill-[#007BFE] text-[#007BFE]" : ""}`} />
             </button>
           </div>
         </div>

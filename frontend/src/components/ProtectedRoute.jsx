@@ -1,9 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { Sparkles } from "lucide-react";
 
-export default function ProtectedRoute({ children }) {
-  const { isAuthenticated, loading } = useAuth();
+export default function ProtectedRoute({ children, allowedRoleIds }) {
+  const { user, isAuthenticated, loading } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -39,6 +39,10 @@ export default function ProtectedRoute({ children }) {
         </div>
       </div>
     );
+  }
+
+  if (allowedRoleIds && !allowedRoleIds.includes(user?.roleId)) {
+    return <Navigate to="/" replace />;
   }
 
   return children;

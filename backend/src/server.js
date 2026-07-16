@@ -16,6 +16,7 @@ import majorRoutes from "./routes/majorRoutes.js";
 import admissionRoutes from "./routes/admissionRoutes.js";
 import recommendationRoutes from "./routes/recommendationRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import favoriteRoutes from "./routes/favoriteRoutes.js";
 
 import { serveSwagger, setupSwagger } from './config/swagger.js';
 import { register } from "./controllers/authController.js";
@@ -62,6 +63,7 @@ app.use("/api/majors", majorRoutes);
 app.use("/api/admissions", admissionRoutes);
 app.use("/api/recommendations", recommendationRoutes);
 app.use("/api/admin", dashboardRoutes);
+app.use("/api/favorites", favoriteRoutes);
 
 // Error handling middleware
 app.use(errorHandler);

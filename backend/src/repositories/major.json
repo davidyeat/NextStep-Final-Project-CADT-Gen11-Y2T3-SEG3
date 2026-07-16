@@ -2,115 +2,781 @@
     // Royal University of Phnom Penh (RUPP)
     {
         "academicUnitId": 1,
-        "name": "Department of Chinese",
+        "name": "Chinese",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "Chinese language and culture"
+        "tuitionFee": 600,
+        "description": ""
     },
     {
         "academicUnitId": 1,
-        "name": "Department of English",
+        "name": "English",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "English language and literature"
+        "tuitionFee": 600,
+        "description": ""
     },
     {
         "academicUnitId": 1,
-        "name": "Department of French",
+        "name": "French",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "French language and culture"
+        "tuitionFee": 600,
+        "description": ""
     },
     {
         "academicUnitId": 1,
-        "name": "Department of Japanese",
+        "name": "Japanese",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "Japanese language and culture"
+        "tuitionFee": 600,
+        "description": ""
     },
     {
         "academicUnitId": 1,
-        "name": "Department of Korean",
+        "name": "Korean",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "Korean language and culture"
+        "tuitionFee": 600,
+        "description": ""
     },
     {
         "academicUnitId": 1,
-        "name": "Department of Thai",
+        "name": "Thai",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 600.00,
-        "description": "Thai language and culture"
+        "tuitionFee": 600,
+        "description": ""
     },
+
+    {
+        "academicUnitId": 2,
+        "name": "Computer Science",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 2,
+        "name": "Mathematics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 2,
+        "name": "Physics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 2,
+        "name": "Chemistry",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 2,
+        "name": "Biology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 2,
+        "name": "Environmental Science",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+
+    {
+        "academicUnitId": 3,
+        "name": "Environmental Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 3,
+        "name": "Bio-Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 3,
+        "name": "Information Technology Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 3,
+        "name": "Telecommunication and Electronic Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 3,
+        "name": "Automation and Supply Chain Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+
+    {
+        "academicUnitId": 4,
+        "name": "International Relations (DIR)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 4,
+        "name": "International Economic (D.I.Eco)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 4,
+        "name": "Political Science and Public Policy (DPSPP)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+    {
+        "academicUnitId": 4,
+        "name": "Vietnamese Studies (D.V.N.S)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 800,
+        "description": ""
+    },
+
+    {
+        "academicUnitId": 5,
+        "name": "Community Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 5,
+        "name": "Economic Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 5,
+        "name": "Natural Resource Management and Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 5,
+        "name": "Sustainable Urban Planning and Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+
+    {
+        "academicUnitId": 6,
+        "name": "Lifelong Learning",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 6,
+        "name": "Education Studies",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 6,
+        "name": "Higher Education Development and Management",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+
+    {
+        "academicUnitId": 7,
+        "name": "Tourism",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Social Work",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 600,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Sociology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Psychology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Philosophy",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Media and Communication",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 900,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Linguistics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "International Business Management",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Khmer Literature",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "History",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+    {
+        "academicUnitId": 7,
+        "name": "Geography and Land Management",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 450,
+        "description": ""
+    },
+
 
     // Cambodia Academy of Digital Technology (CADT)
     {
         "academicUnitId": 13,
         "name": "Software Engineering",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 2500.00,
-        "description": "Aim to provide a skillfull Bachelor of Computer Science specialized in Software Engineering. Students will also develop the skills necessary to solve complex technical problems and contribute to the community and society.",
-        "learningOutcomes": [
-            "Develop a website or web application",
-            "Develop mobile application",
-            "Analysis and design database",
-            "Understand the social and ethical implications of working as a professional in the field of computer science",
-            "Critically analyze a problem and design, implement, and evaluate a computer solution that meets the requirements",
-            "Work effectively in small groups on medium-scale computing projects"
-        ],
-        "futureCareerProspects": [
-            "Software Developer",
-            "Database Designer and Administrator",
-            "Mobile Application Developer",
-            "IT Consultant",
-            "Digital Technology Entrepreneur",
-            "UX/UI Designer",
-            "Web Developer",
-            "Project Coordinator",
-            "Quality Assurance Analyst"
-        ]
+        "tuitionFee": 2500,
+        "description": "Aim to provide a skillfull Bachelor of Computer Science specialized in Software Engineering. Students will also develop the skills necessary to solve complex technical problems and contribute to the community and society."
     },
     {
         "academicUnitId": 13,
         "name": "Data Science",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 2500.00,
-        "description": "Aim to provide a skillfull Bachelor degree of Computer Science specialized in Data Science. Students will work in various settings, including research organizations, businesses, or government agencies.",
-        "learningOutcomes": [
-            "Explain and use appropriate and relavant, fundamental and applied mathematical and statistical knowledge, methodologies and modern computational tools",
-            "Analyze and manage large amounts of data arising from various sources",
-            "Evaluate and comapre solutions to data analysis problems on the basis of organizational and user requirements",
-            "Design and implement data analytic techniques that accommodate specified requirements and constraints, based on analysis or modeling or requirements specification",
-            "Be able to solve the real business problems to make the right decision."
-        ],
-        "futureCareerProspects": [
-            "Data Administrator",
-            "Business Intelligence Developer",
-            "Business Analyst - Data Analyst",
-            "Machine Learning Engineer",
-            "Data Modeling Specialist",
-            "Data Science Researcher"
-        ]
+        "tuitionFee": 2500,
+        "description": "Aim to provide a skillfull Bachelor degree of Computer Science specialized in Data Science. Students will work in various settings, including research organizations, businesses, or government agencies."
     },
     {
         "academicUnitId": 14,
         "name": "Telecommunications and Networking Engineering",
         "degreeLevel": "Bachelor",
-        "tuitionFee": 2500.00,
-        "description": "Offers a cutting-edge program in Telecommunications and Network Engineering. Students will learn to design and optimize networks, equipping them for the ever-evolving world of technology.",
-        "learningOutcomes": [
-            "Design and implement telecommunications systems and networks",
-            "Interpret mathematical problems in the Telecommunication Technologies and Service Engineering area",
-            "Classify telecommunication standards and regulations in Cambodia",
-            "Apply programming languages into simulated and remote network systems, distributed services, and applications",
-            "Design computer network and transmission systems"
-        ],
-        "futureCareerProspects": [
-            "Core Network Engineer",
-            "Cloud Infrastructure and System Administrator",
-            "Design computer network and transmission systems",
-            "Service and Support Center",
-            "Quality of Service Analyst"
-        ]
+        "tuitionFee": 2500,
+        "description": "Offers a cutting-edge program in Telecommunications and Network Engineering. Students will learn to design and optimize networks, equipping them for the ever-evolving world of technology."
+    },
+        {
+        "academicUnitId": 14,
+        "name": "Cyber Security",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 2500,
+        "description": "The program equips studetns with the skills and knowledge to protect data and information from cyber threats. You will learn about network security, cryptography, ethical hacking, and more."
+    },
+    {
+        "academicUnitId": 15,
+        "name": "E-Commerce",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 2500,
+        "description": "The program specifically designed to prepare students for the contemporary workforce and a global career especially for the emerging market."
+    },
+
+    // Institute of Technology of Cambodia (ITC)
+    
+    // ==========================================
+    // Academic Unit 8: Faculty of Electrical Engineering
+    // ==========================================
+    {
+        "academicUnitId": 8,
+        "name": "Electrical and Energy Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 8,
+        "name": "Industrial and Mechanical Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 8,
+        "name": "Information and Communications Technology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+        {
+        "academicUnitId": 8,
+        "name": "Telecommunications and Networking Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 8,
+        "name": "Applied Mathematics and Statistics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 8,
+        "name": "Department of E-Learning",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+
+    // ==========================================
+    // Academic Unit 9: Faculty of Civil Engineering (GCI)
+    // ==========================================
+    {
+        "academicUnitId": 9,
+        "name": "Civil Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 9,
+        "name": "Architectural Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 9,
+        "name": "Infrastructure and Transportation",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+
+    // ==========================================
+    // Academic Unit 10: Faculty of Chemical and Food (GCA)
+    // ==========================================
+    {
+        "academicUnitId": 10,
+        "name": "Chemical Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 10,
+        "name": "Food Science and Technology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+
+    // ==========================================
+    // Academic Unit 11: Faculty of Hydrology and Water Resources Engineering
+    // ==========================================
+    {
+        "academicUnitId": 11,
+        "name": "Water Resources and Rural Infrastructure",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 11,
+        "name": "Water Enviromental Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+
+    // ==========================================
+    // Academic Unit 12: Faculty of Geo-resources and Geotechnical Engineering
+    // ==========================================
+    {
+        "academicUnitId": 12,
+        "name": "Geo-resources Petroleum",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+    {
+        "academicUnitId": 12,
+        "name": "Geotechnical Engineering",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 700,
+        "description": ""
+    },
+
+    // National University of Management
+    // 16	Faculty of Management
+    {
+        "academicUnitId": 16,
+        "name": "Management",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+    {
+        "academicUnitId": 16,
+        "name": "Marketing",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+    {
+        "academicUnitId": 16,
+        "name": "Entrepreneurship",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 17	Faculty of Finance and Accounting
+    {
+        "academicUnitId": 17,
+        "name": "Accounting",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+    {
+        "academicUnitId": 17,
+        "name": "Accounting and Auditing",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+    {
+        "academicUnitId": 17,
+        "name": "Accounting and Taxation",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+        {
+        "academicUnitId": 17,
+        "name": "Finance and Insurance",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+    {
+        "academicUnitId": 17,
+        "name": "Finance and Security Market",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+
+    },
+    {
+        "academicUnitId": 17,
+        "name": "Finance and Banking",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 18	Faculty of Information Technology
+    {
+        "academicUnitId": 18,
+        "name": "Information Technology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+
+    },
+    {
+        "academicUnitId": 18,
+        "name": "Robotic and Artificial Intelligence (AI)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 19	Faculty of Economics
+    {
+        "academicUnitId": 19,
+        "name": "Business Economics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+
+    },
+    {
+        "academicUnitId": 19,
+        "name": "Economics for Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 20	Faculty of Foreign Languages
+    {
+        "academicUnitId": 20,
+        "name": "English Literature",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 21	Faculty of Tourism and Hospitality
+    {
+        "academicUnitId": 21,
+        "name": "Tourism",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+        {
+        "academicUnitId": 21,
+        "name": "Hospitality",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // 22	Faculty of Law
+    {
+        "academicUnitId": 22,
+        "name": "Bachelor of Law",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+        {
+        "academicUnitId": 22,
+        "name": "Public Administration Management",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": ""
+    },
+
+    // ParagonIU
+    // 23 Faculty of Engineering
+    {
+        "academicUnitId": 23,
+        "name": "Architecture (ARC)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee":  4500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 23,
+        "name": "Civil Engineering (CE)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 4500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 23,
+        "name": "Industrial Engineering (IE)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 4500,
+        "description": ""
+    },
+
+    // 24	Faculty of Information and Computer Technologyies
+    {
+        "academicUnitId": 24,
+        "name": "Computer Science (CS)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee":  4000,
+        "description": ""
+    },
+    {
+        "academicUnitId": 24,
+        "name": "Digital Arts and Design (DAD)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 4000,
+        "description": ""
+    },
+    {
+        "academicUnitId": 24,
+        "name": "Management of Information Systems (MIS)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 4000,
+        "description": ""
+    },
+
+    // 25	Faculty of Economics and Administrative Sciences
+    {
+        "academicUnitId": 25,
+        "name": "Banking and Finance (BAF)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee":  3500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 25,
+        "name": "Economics (ECON)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 3500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 25,
+        "name": "Business Administration (BUS)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 3500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 25,
+        "name": "International Trade and Logistics (ITL)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee":  3500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 25,
+        "name": "International Relations (IR)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 3500,
+        "description": ""
+    },
+    {
+        "academicUnitId": 25,
+        "name": "Business Administration (BUS)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 3500,
+        "description": ""
+    },
+
+    // American University of Phnom Penh
+    {
+        "academicUnitId": 26,
+        "name": "Business Administration",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Prepares students for global corporate leadership, management, and entrepreneurial innovation tracks."
+    },
+    {
+        "academicUnitId": 26,
+        "name": "Communication",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 9000,
+        "description": "This program is designed to provide students with a comprehensive understanding of effective communication strategies and business principles, preparing them for a wide range of career opportunities in various industries."
+    },
+    {
+        "academicUnitId": 26,
+        "name": "e-Society (Digital Marketing)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 9000,
+        "description": "This program equips students with a comprehensive understanding of data management, digital technologies, social media, and their implications for businesses and society."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Artificial Intelligence (AI)",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Aims to equip students with a strong foundation and advanced skills in AI. Core courses like Introduction to AI, Machine Learning, and Generative AI prepare graduates for careers in AI research and industry."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Computer Science",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 9000,
+        "description": "Delivers comprehensive education in programming languages, web development, and software engineering in partnership with U.S. institutional standards."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Cybersecurity",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Focuses on security architecture, defensive network monitoring, ethical hacking, and information governance protocols."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Data Analytics",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Equips students with methods for data harvesting, pattern identification, and predictive analytics models."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Digital Infrastructure",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "The Digital Infrastructure degree program focuses on mastering cloud infrastructure, virtualization, services, and secure deployment models."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Information and Communications Technology",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Designed to develop graduates with the ability to manage, support, and lead complex computer-based enterprise information systems."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Interactive App Design and Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Hones technical execution skills in crafting, maintaining, and optimizing cross-platform web and mobile software applications."
+    },
+    {
+        "academicUnitId": 27,
+        "name": "Software Development",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Emphasizes the complete software engineering lifecycle, agile design, full-stack programming patterns, and systematic quality assurance testing."
+    },
+    {
+        "academicUnitId": 28,
+        "name": "Law",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Develops a critical core understanding of cross-border legal systems, corporate frameworks, and standard judicial analysis procedures."
+    },
+    {
+        "academicUnitId": 29,
+        "name": "General Education",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": null,
+        "description": "Foundational course track covering critical thinking, communication, global histories, and ethical reasoning across disciplines."
+    },
+    {
+        "academicUnitId": 29,
+        "name": "International Relations and Diplomacy",
+        "degreeLevel": "Bachelor",
+        "tuitionFee": 6000,
+        "description": "Analyzes macroeconomic forces, geopolitical dynamics, conflict resolution strategies, and contemporary foreign policy frameworks."
     }
 ]

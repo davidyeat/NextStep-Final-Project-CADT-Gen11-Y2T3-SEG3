@@ -1,5 +1,7 @@
 import {  Router } from "express";
 import { getAllUniversities, getUniversityById,getUniversityFullDetail ,createUniversity, updateUniversity, deleteUniversity } from "../controllers/universityController.js";
+import authenticationToken from "../middlewares/authenticationToken.js";
+import authorizeRole from "../middlewares/authorizeRole.js";
 
 const universityRoutes = Router();
 
@@ -13,12 +15,12 @@ universityRoutes.get("/:id", getUniversityById);
 universityRoutes.get("/:id/full", getUniversityFullDetail);
 
 // POST api/universities
-universityRoutes.post("/", createUniversity);
+universityRoutes.post("/", authenticationToken, authorizeRole(1), createUniversity);
 
 // PUT /api/universities/:id
-universityRoutes.put("/:id", updateUniversity);
+universityRoutes.put("/:id", authenticationToken, authorizeRole(1), updateUniversity);
 
 // DELETE /api/universities/:id
-universityRoutes.delete("/:id", deleteUniversity);
+universityRoutes.delete("/:id", authenticationToken, authorizeRole(1), deleteUniversity);
 
 export default universityRoutes;

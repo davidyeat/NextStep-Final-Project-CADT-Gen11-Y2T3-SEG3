@@ -75,6 +75,7 @@ export default function Login() {
             onChange={handleChange}
             placeholder="Enter your password"
             autoComplete="current-password"
+            minLength={6}
           />
 
           <div className="flex items-center justify-between gap-4 text-sm">

@@ -97,6 +97,7 @@ export default function SignUp() {
             onChange={handleChange}
             placeholder="Create a password"
             autoComplete="new-password"
+            minLength={6}
           />
           <AuthField
             label="Confirm password"
@@ -106,6 +107,7 @@ export default function SignUp() {
             onChange={handleChange}
             placeholder="Confirm your password"
             autoComplete="new-password"
+            minLength={6}
           />
 
           <button
